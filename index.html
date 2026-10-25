@@ -78,25 +78,25 @@
 
 <!-- STATE-START -->
 <script>var LIVE_OPS_STATE = {
- "generated_ist": "2026-10-25T16:05:15+05:30",
- "generated_label": "Current when opened: 16:05 IST",
+ "generated_ist": "2026-10-25T16:10:11+05:30",
+ "generated_label": "Current when opened: 16:10 IST",
  "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
  "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
  "flow": [
   {
-   "from": "v13 notebook (latest)",
+   "from": "v14 notebook (latest)",
    "to": "decision",
    "state": "done"
   },
   {
    "from": "Latest decision: D-038 ADDENDUM \u2014 ft_off attribution WAIVED as non-",
    "to": "countersign",
-   "state": "done"
+   "state": "waiting"
   },
   {
    "from": "Countersign",
    "to": "pushed",
-   "state": "done"
+   "state": "waiting"
   },
   {
    "from": "Pushed",
@@ -429,12 +429,12 @@
    "name": "Postbox watch (Rio voice)",
    "sub": "Every 2 min \u2014 answers Anuj's spoken instructions",
    "state": "working",
-   "task": "Last run 15:55 IST, quiet (inbox empty) | Latest voice update 20261025-154746: Blink diagnosis done: one root cause explains two faults",
-   "last": "Last run 15:55 IST (memory log)",
+   "task": "Last run 16:09 IST, quiet (inbox empty) | Latest voice update 20261025-154746: Blink diagnosis done: one root cause explains two faults",
+   "last": "Last run 16:09 IST (memory log)",
    "window_min": 30,
    "events": [
     {
-     "t": "15:55 IST",
+     "t": "16:09 IST",
      "text": "Quiet run: inbox empty, no session, no update filed",
      "src": "~/memory/2026-10-25.md"
     },
@@ -551,8 +551,8 @@
    "name": "Path L engine",
    "sub": "Lead engine lane",
    "state": "working",
-   "task": "v13 notebook, countersigned, pushed; no v13 run dir yet; newest judged run v11_out (Judged: eval_summary.json on disk)",
-   "last": "Latest movement 15:49 IST",
+   "task": "v14 notebook, countersign pending, not pushed; no v14 run dir yet; newest judged run v11_out (Judged: eval_summary.json on disk)",
+   "last": "Latest movement 16:09 IST",
    "window_min": 90,
    "events": [
     {
@@ -566,13 +566,8 @@
      "src": "launch_work/D-038_ADDENDUM_FT_OFF_WAIVER.md"
     },
     {
-     "t": "13:34 IST",
-     "text": "Countersign v13 done",
-     "src": "launch_work/COUNTERSIGN_V13.md"
-    },
-    {
-     "t": "13:25 IST",
-     "text": "Latest notebook pathl_finetune_v13.ipynb (countersigned, pushed)",
+     "t": "16:09 IST",
+     "text": "Latest notebook pathl_finetune_v14.ipynb (countersign pending, not pushed)",
      "src": "kernel_v9smoke/push/"
     }
    ],
@@ -795,12 +790,12 @@
    "name": "Board refresh (this board)",
    "sub": "Every 5 min \u2014 regenerates board state",
    "state": "working",
-   "task": "Board state writer last ran 16:05 IST (cron or manual)",
-   "last": "Writer run 16:05 IST",
+   "task": "Board state writer last ran 16:10 IST (cron or manual)",
+   "last": "Writer run 16:10 IST",
    "window_min": 30,
    "events": [
     {
-     "t": "16:05 IST",
+     "t": "16:10 IST",
      "text": "State regenerated (discovery scan included)",
      "src": "hidden_files/live_ops_board/write_state.py"
     }
@@ -810,20 +805,20 @@
   {
    "id": "ver-latest",
    "section": "resources",
-   "name": "Kernel v13 notebook (latest)",
+   "name": "Kernel v14 notebook (latest)",
    "sub": "Auto-discovered \u2014 newest notebook on file",
    "state": "waiting",
-   "task": "Notebook pathl_finetune_v13.ipynb; countersign: countersigned; pushed: pushed",
-   "last": "Notebook 13:25 IST",
+   "task": "Notebook pathl_finetune_v14.ipynb; countersign: countersign pending; pushed: not pushed",
+   "last": "Notebook 16:09 IST",
    "window_min": 0,
    "events": [
     {
-     "t": "13:25 IST",
-     "text": "Notebook pathl_finetune_v13.ipynb (countersigned, pushed)",
-     "src": "kernel_v9smoke/push/pathl_finetune_v13.ipynb"
+     "t": "16:09 IST",
+     "text": "Notebook pathl_finetune_v14.ipynb (countersign pending, not pushed)",
+     "src": "kernel_v9smoke/push/pathl_finetune_v14.ipynb"
     }
    ],
-   "evidence": "kernel_v9smoke/push/pathl_finetune_v13.ipynb"
+   "evidence": "kernel_v9smoke/push/pathl_finetune_v14.ipynb"
   },
   {
    "id": "run-kernel_v9smoke-v11_out",
@@ -1024,6 +1019,24 @@
    "evidence": "/home/hatch/workspace/goals/conversational-rio-voice-first-personal-assistant/crons/runonce/rio-v9-8am-readiness__runonce@2026-10-23T07:30:00.md"
   },
   {
+   "id": "disc-push-2e1441",
+   "section": "resources",
+   "name": "Auto-discovered: push",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "working",
+   "task": "work \u2014 first seen 13:30, last movement 16:09",
+   "last": "Last movement 16:09 IST",
+   "window_min": 60,
+   "events": [
+    {
+     "t": "13:30",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/push"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/push"
+  },
+  {
    "id": "disc-work-55e281",
    "section": "resources",
    "name": "Auto-discovered: work",
@@ -1076,24 +1089,6 @@
     }
    ],
    "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/V13_BUILD_NOTE.md"
-  },
-  {
-   "id": "disc-push-2e1441",
-   "section": "resources",
-   "name": "Auto-discovered: push",
-   "sub": "Auto-discovered \u2014 work",
-   "state": "waiting",
-   "task": "work \u2014 first seen 13:30, last movement 13:25",
-   "last": "Last movement 13:25 IST",
-   "window_min": 60,
-   "events": [
-    {
-     "t": "13:30",
-     "text": "First seen by board scan",
-     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/push"
-    }
-   ],
-   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/push"
   },
   {
    "id": "disc-correction-review-20261026-md-59806e",
