@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0f1220">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Apnapan Live">
@@ -78,8 +80,8 @@
 
 <!-- STATE-START -->
 <script>var LIVE_OPS_STATE = {
- "generated_ist": "2026-10-25T16:50:21+05:30",
- "generated_label": "Current when opened: 16:50 IST",
+ "generated_ist": "2026-10-25T16:53:32+05:30",
+ "generated_label": "Current when opened: 16:53 IST",
  "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
  "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
  "flow": [
@@ -89,7 +91,7 @@
    "state": "done"
   },
   {
-   "from": "Latest decision: D-039 \u2014 Path L v14 smoke: NO VERDICT (kernel ERROR",
+   "from": "Latest decision: GATE RECORD V15 \u2014 Patched-launch-gate exercise for",
    "to": "countersign",
    "state": "waiting"
   },
@@ -116,10 +118,15 @@
    "name": "Muse \u2014 MD / CTO",
    "sub": "AI brain, top node",
    "state": "working",
-   "task": "Latest decision: D-039 \u2014 Path L v14 smoke: NO VERDICT (kernel ERROR before training) \u00b7 Focus: engine + Rio + tomorrow's review",
-   "last": "Latest decision 16:48 IST",
+   "task": "Latest decision: GATE RECORD V15 \u2014 Patched-launch-gate exercise for the v15 build \u00b7 Focus: engine + Rio + tomorrow's review",
+   "last": "Latest decision 16:53 IST",
    "window_min": 180,
    "events": [
+    {
+     "t": "16:51 IST",
+     "text": "GATE RECORD V15 \u2014 Patched-launch-gate exercise for the v15 build",
+     "src": "launch_work/GATE_RECORD_V15.md"
+    },
     {
      "t": "16:38 IST",
      "text": "D-039 \u2014 Path L v14 smoke: NO VERDICT (kernel ERROR before training)",
@@ -139,11 +146,6 @@
      "t": "15:49 IST",
      "text": "D-038 ADDENDUM \u2014 ft_off attribution WAIVED as non-blocking (NO-GO lifted for v14 BUILD)",
      "src": "launch_work/D-038_ADDENDUM_FT_OFF_WAIVER.md"
-    },
-    {
-     "t": "15:44 IST",
-     "text": "D-038 DIAGNOSIS \u2014 v13 smoke faults: root causes, proposed v14 fixes, v14 assertions",
-     "src": "launch_work/D-038_DIAGNOSIS.md"
     }
    ],
    "evidence": "launch_work/D-*.md, COUNTERSIGN_*.md (scan)"
@@ -518,8 +520,8 @@
    "name": "Bridge sync (Hark loop)",
    "sub": "Every 10 min \u2014 repo audit; Hark parked since 22 Oct",
    "state": "working",
-   "task": "AUDIT 528 quiet cycle 16:41 IST",
-   "last": "State file 16:41 IST",
+   "task": "AUDIT 528 quiet cycle 16:53 IST",
+   "last": "State file 16:53 IST",
    "window_min": 60,
    "events": [
     {
@@ -552,7 +554,7 @@
    "sub": "Lead engine lane",
    "state": "working",
    "task": "v15 notebook, countersign pending, not pushed; no v15 run dir yet; newest judged run v11_out (Judged: eval_summary.json on disk)",
-   "last": "Latest movement 16:42 IST",
+   "last": "Latest movement 16:51 IST",
    "window_min": 90,
    "events": [
     {
@@ -561,9 +563,9 @@
      "src": "kernel_v9smoke/v11_out/"
     },
     {
-     "t": "16:38 IST",
-     "text": "D-039 \u2014 Path L v14 smoke: NO VERDICT (kernel ERROR before training)",
-     "src": "launch_work/D-039_V14_NO_VERDICT.md"
+     "t": "16:51 IST",
+     "text": "GATE RECORD V15 \u2014 Patched-launch-gate exercise for the v15 build",
+     "src": "launch_work/GATE_RECORD_V15.md"
     },
     {
      "t": "16:42 IST",
@@ -762,8 +764,8 @@
    "name": "Bridge loop (Hark channel)",
    "sub": "Hark parked; loop audits only",
    "state": "parked",
-   "task": "Hark silent since 23 Oct 04:52 IST; loop audited 16:41 IST; term ends after 8 Nov",
-   "last": "STATUS.md 16:41 IST",
+   "task": "Hark silent since 23 Oct 04:52 IST; loop audited 16:53 IST; term ends after 8 Nov",
+   "last": "STATUS.md 16:53 IST",
    "window_min": 0,
    "events": [
     {
@@ -790,12 +792,12 @@
    "name": "Board refresh (this board)",
    "sub": "Every 5 min \u2014 regenerates board state",
    "state": "working",
-   "task": "Board state writer last ran 16:50 IST (cron or manual)",
-   "last": "Writer run 16:50 IST",
+   "task": "Board state writer last ran 16:53 IST (cron or manual)",
+   "last": "Writer run 16:53 IST",
    "window_min": 30,
    "events": [
     {
-     "t": "16:50 IST",
+     "t": "16:53 IST",
      "text": "State regenerated (discovery scan included)",
      "src": "hidden_files/live_ops_board/write_state.py"
     }
@@ -1017,6 +1019,78 @@
     }
    ],
    "evidence": "/home/hatch/workspace/goals/conversational-rio-voice-first-personal-assistant/crons/runonce/rio-v9-8am-readiness__runonce@2026-10-23T07:30:00.md"
+  },
+  {
+   "id": "disc-icon-192-png-110c2b",
+   "section": "resources",
+   "name": "Auto-discovered: icon-192.png",
+   "sub": "Auto-discovered \u2014 deliverable",
+   "state": "done",
+   "task": "deliverable \u2014 first seen 16:53, last movement 16:53",
+   "last": "Last movement 16:53 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "16:53",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/files/icon-192.png"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/files/icon-192.png"
+  },
+  {
+   "id": "disc-icon-512-png-c568b7",
+   "section": "resources",
+   "name": "Auto-discovered: icon-512.png",
+   "sub": "Auto-discovered \u2014 deliverable",
+   "state": "done",
+   "task": "deliverable \u2014 first seen 16:53, last movement 16:53",
+   "last": "Last movement 16:53 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "16:53",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/files/icon-512.png"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/files/icon-512.png"
+  },
+  {
+   "id": "disc-manifest-json-1afe77",
+   "section": "resources",
+   "name": "Auto-discovered: manifest.json",
+   "sub": "Auto-discovered \u2014 deliverable",
+   "state": "done",
+   "task": "deliverable \u2014 first seen 16:53, last movement 16:53",
+   "last": "Last movement 16:53 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "16:53",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/files/manifest.json"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/files/manifest.json"
+  },
+  {
+   "id": "disc-V15-BUILD-NOTE-md-8bd5a3",
+   "section": "resources",
+   "name": "Auto-discovered: V15_BUILD_NOTE.md",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "done",
+   "task": "work \u2014 first seen 16:53, last movement 16:51",
+   "last": "Last movement 16:51 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "16:53",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/V15_BUILD_NOTE.md"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/V15_BUILD_NOTE.md"
   },
   {
    "id": "disc-v14-fetch-dc1756",
