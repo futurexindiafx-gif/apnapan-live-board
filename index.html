@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0f1220">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Apnapan Live">
+<title>Apnapan Live</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#0f1220;color:#eef0ff;padding:14px 12px 120px}
+  h1{font-size:26px;margin:4px 0 2px}
+  .sub{color:#b9bedd;font-size:15px;line-height:1.45}
+  .rule{background:#1c2140;border:1px solid #3a4170;border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.5;margin:12px 0}
+  .rule b{color:#ffd166}
+  h2{font-size:20px;margin:22px 0 8px;border-top:1px solid #2a2f55;padding-top:14px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+  .card{background:#1a1e38;border:1px solid #333a66;border-radius:14px;padding:12px 14px;cursor:pointer;text-align:left;width:100%;color:inherit;font:inherit}
+  .card:active{background:#232850}
+  .card.wide{grid-column:1/-1}
+  .name{font-size:18px;font-weight:700;line-height:1.25}
+  .role{font-size:13px;color:#aab0d8;margin:2px 0 8px}
+  .pill{display:inline-block;font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px;margin-bottom:8px}
+  .working{background:#1f7a4d}.waiting{background:#8a6d1f}.parked{background:#555a7a}
+  .idle{background:#2b5d8a}.done{background:#5b4a8a}.stuck{background:#a33333}
+  .task{font-size:15px;line-height:1.45}
+  .last{font-size:13px;color:#aab0d8;margin-top:8px}
+  .flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .step{background:#1a1e38;border:1px solid #333a66;border-radius:10px;padding:8px 10px;font-size:14px}
+  .step .s{font-size:12px;font-weight:700}
+  .arrow{font-size:18px;color:#ffd166}
+  #sheet{position:fixed;left:0;right:0;bottom:0;background:#f4f5ff;color:#14142a;border-radius:18px 18px 0 0;padding:16px 16px 26px;max-height:72vh;overflow:auto;display:none;box-shadow:0 -6px 30px rgba(0,0,0,.5)}
+  #sheet h3{margin:0 0 4px;font-size:20px}
+  #sheet .meta{font-size:14px;color:#44466a;line-height:1.5}
+  #sheet ul{padding-left:18px;font-size:15px;line-height:1.55}
+  #sheet li{margin-bottom:8px}
+  #sheet .src{font-size:13px;color:#55577a}
+  #close{float:right;font-size:16px;font-weight:700;background:#14142a;color:#fff;border:0;border-radius:10px;padding:8px 14px;cursor:pointer}
+  .foot{font-size:13px;color:#8b90b8;margin-top:20px;line-height:1.5}
+  #snapbanner{display:none;background:#4a3410;border:1px solid #c9962e;border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.5;margin:12px 0}
+</style>
+</head>
+<body>
+<h1>🔴 Apnapan Live</h1>
+<div class="sub">Live Ops Board — the team behind Apnapan, live on every tap.</div>
+<div id="snapbanner">○ SNAPSHOT — the live state file was not reachable when this page opened, so what you see is the last baked-in snapshot, not live state. Open it again where the state file is served alongside this page.</div>
+<div class="sub" id="genline">Loading team state…</div>
+<div class="rule">📏 <b>Refresh rule:</b> <span id="refreshline"></span><br>
+🏠 <b>Loop:</b> Review here, ask in the main chat.<br>
+🤖 <b>Honest team:</b> every node below is an AI agent, specialist or tool — not a human employee. States come from real files. Nothing here is animated or invented. If a node looks stuck, tap it, then ask Muse about that node only.</div>
+
+<h2>👥 Team — who is working right now</h2>
+<div class="grid" id="teamgrid"></div>
+
+<h2>🔗 Engine chain — where the work flows</h2>
+<div class="flow" id="flow"></div>
+
+<h2>🗂️ Project lanes</h2>
+<div class="grid" id="lanegrid"></div>
+
+<h2>📦 Resources — everything Muse has access to, and everything running behind the scenes</h2>
+<div class="sub">Outside brains, accounts, tools and infrastructure — all in one place. Idle is shown, never hidden: tap an idle node and ask about it in the main chat. Board = seeing, main chat = asking. New resources appear here by themselves within one refresh cycle. Nothing here is hand-added to the page.</div>
+<div class="grid" id="resgrid"></div>
+
+<div class="rule">🚦 <b>Stuck rule:</b> a WORKING node with no movement beyond its window turns <span class="pill stuck">STUCK</span>. Waiting / parked / idle nodes never fake motion — they say so plainly, with the time since their last real movement.</div>
+
+<div class="foot" id="honesty"></div>
+
+<div id="sheet">
+  <button id="close" onclick="document.getElementById('sheet').style.display='none'">Close ✕</button>
+  <h3 id="sname"></h3>
+  <div class="meta" id="smeta"></div>
+  <ul id="sevents"></ul>
+  <div class="src" id="ssrc"></div>
+</div>
+
+<!-- STATE-START -->
+<script>var LIVE_OPS_STATE = {
+ "generated_ist": "2026-10-25T13:01:22+05:30",
+ "generated_label": "Current when opened: 13:01 IST",
+ "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
+ "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
+ "flow": [
+  {
+   "from": "v12 notebook (latest)",
+   "to": "decision",
+   "state": "done"
+  },
+  {
+   "from": "Latest decision: D-036 \u2014 v11 expr audit verdict + switch-route deci",
+   "to": "countersign",
+   "state": "done"
+  },
+  {
+   "from": "Countersign",
+   "to": "pushed",
+   "state": "done"
+  },
+  {
+   "from": "Pushed",
+   "to": "smoke run outputs",
+   "state": "waiting"
+  },
+  {
+   "from": "Smoke run outputs",
+   "to": "judge gate",
+   "state": "waiting"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "mdcto",
+   "section": "team",
+   "name": "Muse \u2014 MD / CTO",
+   "sub": "AI brain, top node",
+   "state": "working",
+   "task": "Latest decision: D-036 \u2014 v11 expr audit verdict + switch-route decision \u00b7 Focus: engine + Rio + tomorrow's review",
+   "last": "Latest decision 12:52 IST",
+   "window_min": 180,
+   "events": [
+    {
+     "t": "12:40 IST",
+     "text": "D-036 \u2014 v11 expr audit verdict + switch-route decision",
+     "src": "launch_work/D-036_V11_AUDIT_SWITCH_ROUTE.md"
+    },
+    {
+     "t": "12:40 IST",
+     "text": "COUNTERSIGN \u2014 Path L smoke v12 (Muse independent check, 25 Oct 2026 ~12:40 IST)",
+     "src": "launch_work/COUNTERSIGN_V12.md"
+    },
+    {
+     "t": "12:36 IST",
+     "text": "GATE RECORD \u2014 Path L v12 (patched-launch-gate)",
+     "src": "launch_work/GATE_RECORD_V12.md"
+    },
+    {
+     "t": "12:36 IST",
+     "text": "FIX_NOTE_V11 \u2014 v11 diagnosis \u2192 v12 fixes (D-035 STOP \u2192 D-036 FIX + RE-SMOKE)",
+     "src": "launch_work/FIX_NOTE_V11.md"
+    },
+    {
+     "t": "12:03 IST",
+     "text": "V11 expr-branch audit \u2014 WHY the adapter corrupts faces and WHY the ablation is vacuous",
+     "src": "launch_work/V11_EXPR_AUDIT_20261025.md"
+    }
+   ],
+   "evidence": "launch_work/D-*.md, COUNTERSIGN_*.md (scan)"
+  },
+  {
+   "id": "fin-spec-audit",
+   "section": "team",
+   "name": "v11 expr auditor (AI specialist)",
+   "sub": "AI specialist \u2014 finished today",
+   "state": "done",
+   "task": "Outcome: Fault = WIRING (3 breaks); save mix-up PROVEN bit-identical 480/480; D-036 fix-and-resmoke",
+   "last": "Finished 12:05",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "12:05",
+     "text": "Fault = WIRING (3 breaks); save mix-up PROVEN bit-identical 480/480; D-036 fix-and-resmoke",
+     "src": "launch_work/V11_EXPR_AUDIT_20261025.md; D-036_V11_AUDIT_SWITCH_ROUTE.md"
+    }
+   ],
+   "evidence": "launch_work/V11_EXPR_AUDIT_20261025.md; D-036_V11_AUDIT_SWITCH_ROUTE.md"
+  },
+  {
+   "id": "fin-spec-board",
+   "section": "team",
+   "name": "Ops-board builder (AI specialist)",
+   "sub": "AI specialist \u2014 finished today",
+   "state": "done",
+   "task": "Outcome: Live Ops Board v1 delivered: page + state writer + build note (goal files/)",
+   "last": "Finished 12:35",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "12:35",
+     "text": "Live Ops Board v1 delivered: page + state writer + build note (goal files/)",
+     "src": "files/live-ops-board.html; hidden_files/live_ops_board/BUILD_NOTE_V1.md"
+    }
+   ],
+   "evidence": "files/live-ops-board.html; hidden_files/live_ops_board/BUILD_NOTE_V1.md"
+  },
+  {
+   "id": "fin-spec-v12",
+   "section": "team",
+   "name": "v12 builder (AI specialist)",
+   "sub": "AI specialist \u2014 finished today",
+   "state": "done",
+   "task": "Outcome: v12 built + countersigned + pushed + RUNNING (kernel v12)",
+   "last": "Finished 12:41",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "12:41",
+     "text": "v12 built + countersigned + pushed + RUNNING (kernel v12)",
+     "src": "launch_work/COUNTERSIGN_V12.md; kernel v12 RUNNING"
+    }
+   ],
+   "evidence": "launch_work/COUNTERSIGN_V12.md; kernel v12 RUNNING"
+  },
+  {
+   "id": "fin-spec-board11",
+   "section": "team",
+   "name": "Ops-board v1.1 upgrader (AI specialist)",
+   "sub": "AI specialist \u2014 finished today",
+   "state": "done",
+   "task": "Outcome: v1.1 delivered + tap-test passed (fetch-OK 8/8, fetch-FAIL 5/5)",
+   "last": "Finished 12:41",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "12:41",
+     "text": "v1.1 delivered + tap-test passed (fetch-OK 8/8, fetch-FAIL 5/5)",
+     "src": "hidden_files/live_ops_board/BUILD_NOTE_V1_1.md"
+    }
+   ],
+   "evidence": "hidden_files/live_ops_board/BUILD_NOTE_V1_1.md"
+  },
+  {
+   "id": "fin-spec-board12",
+   "section": "team",
+   "name": "Ops-board v1.2 builder (AI specialist)",
+   "sub": "AI specialist \u2014 finished today",
+   "state": "done",
+   "task": "Outcome: v1.2 delivered + tap-test passed (D-file, run dir, deliverable, assignment flip, new resource, cron unit test)",
+   "last": "Finished 12:51",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "12:51",
+     "text": "v1.2 delivered + tap-test passed (D-file, run dir, deliverable, assignment flip, new resource, cron unit test)",
+     "src": "hidden_files/live_ops_board/BUILD_NOTE_V1_2.md"
+    }
+   ],
+   "evidence": "hidden_files/live_ops_board/BUILD_NOTE_V1_2.md"
+  },
+  {
+   "id": "brain-chatgpt",
+   "section": "resources",
+   "name": "ChatGPT Plus (outside brain)",
+   "sub": "Outside brain \u2014 on demand only",
+   "state": "idle",
+   "task": "Specialists: ChatGPT Plus session (workers/guardians on demand) | Assignment: none \u2014 Available/Idle (status: idle) | Reply routes to: Reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine (sanitized design review only, never auto-applied)",
+   "last": "Verified 09:44; no task running",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "09:44",
+     "text": "Access verified; idle since (never faked as working)",
+     "src": "parent access check 25 Oct"
+    }
+   ],
+   "evidence": "parent access check 25 Oct 09:44 IST"
+  },
+  {
+   "id": "brain-grok",
+   "section": "resources",
+   "name": "Grok bots, anuj4242 (outside brain)",
+   "sub": "Outside brain \u2014 on demand only",
+   "state": "idle",
+   "task": "Specialists: Lipsync And Phoenetics; Project Ansh; Guardian6; any new bot Muse creates | Assignment: none \u2014 Available/Idle (status: idle) | Reply routes to: Reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine (sanitized design review only, never auto-applied)",
+   "last": "Verified 09:44; no task running",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "09:44",
+     "text": "Access verified; idle since (never faked as working)",
+     "src": "parent access check 25 Oct"
+    }
+   ],
+   "evidence": "parent access check 25 Oct 09:42\u201309:44 IST"
+  },
+  {
+   "id": "brain-gemini",
+   "section": "resources",
+   "name": "Gemini Pro / Google Pro tools (outside brain)",
+   "sub": "Outside brain \u2014 on demand only",
+   "state": "idle",
+   "task": "Specialists: Gemini Pro mode; Google Pro tools (incl. agent tools); other Google Pro tools (unverified until opened) | Assignment: none \u2014 Available/Idle (status: idle) | Reply routes to: Reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine (sanitized design review only, never auto-applied)",
+   "last": "Verified 09:44; no task running",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "09:44",
+     "text": "Access verified; idle since (never faked as working)",
+     "src": "parent access check 25 Oct"
+    }
+   ],
+   "evidence": "parent access check 25 Oct 09:44 IST"
+  },
+  {
+   "id": "res-github",
+   "section": "resources",
+   "name": "GitHub (futurexindiafx-gif)",
+   "sub": "Access \u2014 code hosting",
+   "state": "idle",
+   "task": "Assignment: NONE | Status: idle | Last verified: 09:31 | Next use / why idle: Bridge sync + postbox commits run on their own loop; no separate assignment on record.",
+   "last": "Verified 09:31",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "09:31",
+     "text": "Access verified",
+     "src": "GitHub verified signed in 09:31 IST 25 Oct (Google route)"
+    }
+   ],
+   "evidence": "GitHub verified signed in 09:31 IST 25 Oct (Google route)"
+  },
+  {
+   "id": "res-kaggle",
+   "section": "resources",
+   "name": "Kaggle CLI (free T4 quota)",
+   "sub": "Access \u2014 GPU (free)",
+   "state": "working",
+   "task": "Assignment: Path L smoke kernel v12 (RUNNING) | Status: working | Last verified: 12:41 | Next use / why idle: v12 verdict watch; 2-session GPU cap shared by all lanes \u2014 never cancel another lane's kernel.",
+   "last": "Verified 12:41",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "12:41",
+     "text": "Access verified",
+     "src": "Kaggle CLI re-verified 09:18 IST; kernel v12 pushed 12:41 IST"
+    },
+    {
+     "t": "12:41",
+     "text": "Assignment: Path L smoke kernel v12 (RUNNING)",
+     "src": "team_status.json"
+    }
+   ],
+   "evidence": "Kaggle CLI re-verified 09:18 IST; kernel v12 pushed 12:41 IST"
+  },
+  {
+   "id": "res-gmail",
+   "section": "resources",
+   "name": "Gmail (anujshri + futurexindiafx)",
+   "sub": "Access \u2014 email",
+   "state": "idle",
+   "task": "Assignment: NONE | Status: idle | Last verified: 11:57 | Next use / why idle: Lead + reply watch; no assignment on record.",
+   "last": "Verified 11:57",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "11:57",
+     "text": "Access verified",
+     "src": "Gmail +read verified on futurexindiafx 11:57 IST (lead #3)"
+    }
+   ],
+   "evidence": "Gmail +read verified on futurexindiafx 11:57 IST (lead #3)"
+  },
+  {
+   "id": "res-drive",
+   "section": "resources",
+   "name": "Google Drive (one account at a time)",
+   "sub": "Access \u2014 file storage",
+   "state": "idle",
+   "task": "Assignment: NONE | Status: idle | Last verified: 00:29 | Next use / why idle: APK deliveries go Drive-first; which account the connector holds is unconfirmed \u2014 no assignment on record.",
+   "last": "Verified 00:29",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "00:29",
+     "text": "Access verified",
+     "src": "V16 APK Drive upload byte-verified 00:29 IST"
+    }
+   ],
+   "evidence": "V16 APK Drive upload byte-verified 00:29 IST"
+  },
+  {
+   "id": "res-bubble",
+   "section": "resources",
+   "name": "Bubble forum (futurexindiafx)",
+   "sub": "Access \u2014 forum account",
+   "state": "idle",
+   "task": "Assignment: NONE | Status: idle | Last verified: 22:47 | Next use / why idle: Paul post awaiting moderator approval (outreach lane); no new assignment on record.",
+   "last": "Verified 22:47",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "22:47",
+     "text": "Access verified",
+     "src": "Bubble account created + Paul post queued 22:47 IST 24 Oct"
+    }
+   ],
+   "evidence": "Bubble account created + Paul post queued 22:47 IST 24 Oct"
+  },
+  {
+   "id": "res-e2e",
+   "section": "resources",
+   "name": "E2E Networks (prepaid)",
+   "sub": "Access \u2014 paid GPU (conditional)",
+   "state": "parked",
+   "task": "Assignment: NONE | Status: parked | Last verified: ? | Next use / why idle: Balance held, no instance running, conditional use only if judges gate it; verification timestamp not on record; no assignment on record.",
+   "last": "Verified ?",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "?",
+     "text": "No assignment on record",
+     "src": "team_status.json"
+    }
+   ],
+   "evidence": "hidden_files/E2E_SPEND_LEDGER.md"
+  },
+  {
+   "id": "res-gemini-keys",
+   "section": "resources",
+   "name": "Gemini API keys (names only)",
+   "sub": "Access \u2014 API keys (names only, never values)",
+   "state": "idle",
+   "task": "Assignment: NONE | Status: idle | Last verified: ? | Next use / why idle: Brain transcription + judge runs on demand; held on this machine, verification timestamp not on record; names only, never values; no assignment on record.",
+   "last": "Verified ?",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "?",
+     "text": "No assignment on record",
+     "src": "team_status.json"
+    }
+   ],
+   "evidence": "Keys held at ~/.credentials (chmod 600); values never shown"
+  },
+  {
+   "id": "watch-postbox",
+   "section": "resources",
+   "name": "Postbox watch (Rio voice)",
+   "sub": "Every 2 min \u2014 answers Anuj's spoken instructions",
+   "state": "working",
+   "task": "Last run 12:34 IST, quiet (inbox empty) | Latest voice update 20261025-124042: Version twelve checked, pushed, and running",
+   "last": "Last run 12:34 IST (memory log)",
+   "window_min": 30,
+   "events": [
+    {
+     "t": "12:34 IST",
+     "text": "Quiet run: inbox empty, no session, no update filed",
+     "src": "~/memory/2026-10-25.md"
+    },
+    {
+     "t": "12:05 IST",
+     "text": "Voice update filed: v11 audit verdict + D-036",
+     "src": "rio-postbox/updates/20261025-120541.json"
+    },
+    {
+     "t": "11:34 IST",
+     "text": "Voice update filed: v11 STOP verdict",
+     "src": "rio-postbox/updates/20261025-113453.json"
+    },
+    {
+     "t": "00:26 IST",
+     "text": "Session fast path live (20 s pickup while session on)",
+     "src": "cron rio-postbox-watch body"
+    }
+   ],
+   "evidence": "rio-postbox/updates/; ~/memory/2026-10-25.md"
+  },
+  {
+   "id": "watch-dashboard",
+   "section": "resources",
+   "name": "Dashboard card",
+   "sub": "Hourly 08:00\u201320:00 IST \u2014 graphical progress card",
+   "state": "working",
+   "task": "Last card 11:43 IST (D-035 STOP); next hourly run",
+   "last": "State file 12:44 IST",
+   "window_min": 120,
+   "events": [
+    {
+     "t": "11:43 IST",
+     "text": "Card presented: v11 STOP + corrected top-5 status",
+     "src": "hidden_files/dashboard/pathl-dashboard-20261025-1143.html"
+    },
+    {
+     "t": "10:45 IST",
+     "text": "Card presented: v10 verdict + v11 running",
+     "src": "hidden_files/dashboard/last_dashboard.json"
+    },
+    {
+     "t": "09:44 IST",
+     "text": "Card presented: v9 error, v10 countersigned",
+     "src": "hidden_files/dashboard/last_dashboard.json"
+    }
+   ],
+   "evidence": "hidden_files/dashboard/last_dashboard.json"
+  },
+  {
+   "id": "watch-watchdog",
+   "section": "resources",
+   "name": "Engine watchdog",
+   "sub": "Every 20 min \u2014 stall check, Muse only, never messages user",
+   "state": "working",
+   "task": "Last run 20261025_1252 (all lanes moving, no stall)",
+   "last": "State file 12:52 IST",
+   "window_min": 60,
+   "events": [
+    {
+     "t": "12:32 IST",
+     "text": "ALL LANES MOVING, no stall; v12 files active on disk",
+     "src": "hidden_files/watchdog_state.json"
+    },
+    {
+     "t": "12:13 IST",
+     "text": "No stall; D-036 landed, v12 next step",
+     "src": "hidden_files/watchdog_state.json"
+    },
+    {
+     "t": "11:52 IST",
+     "text": "No formal stall; audit due by ~12:13 IST",
+     "src": "hidden_files/watchdog_state.json"
+    }
+   ],
+   "evidence": "hidden_files/watchdog_state.json"
+  },
+  {
+   "id": "watch-bridge",
+   "section": "resources",
+   "name": "Bridge sync (Hark loop)",
+   "sub": "Every 10 min \u2014 repo audit; Hark parked since 22 Oct",
+   "state": "working",
+   "task": "AUDIT 528 quiet cycle 12:51 IST",
+   "last": "State file 12:51 IST",
+   "window_min": 60,
+   "events": [
+    {
+     "t": "12:31 IST",
+     "text": "AUDIT 528: quiet cycle, zero Hark change",
+     "src": "bridge STATUS.md"
+    },
+    {
+     "t": "12:12 IST",
+     "text": "AUDIT 526: postbox filing corroborates D-036",
+     "src": "bridge STATUS.md"
+    },
+    {
+     "t": "23 Oct 04:52 IST",
+     "text": "Hark's last observed activity (silence since)",
+     "src": "bridge STATUS.md"
+    },
+    {
+     "t": "22 Oct",
+     "text": "FINAL HANDOVER: Rio sole CTO until HANDBACK",
+     "src": "bridge FINAL_HANDOVER.md"
+    }
+   ],
+   "evidence": "bridge STATUS.md"
+  },
+  {
+   "id": "lane-pathl",
+   "section": "lanes",
+   "name": "Path L engine",
+   "sub": "Lead engine lane",
+   "state": "working",
+   "task": "v12 notebook, countersigned, pushed; no v12 run dir yet; newest judged run v11_out (Judged: eval_summary.json on disk)",
+   "last": "Latest movement 12:40 IST",
+   "window_min": 90,
+   "events": [
+    {
+     "t": "11:31 IST",
+     "text": "kernel_v9smoke/v11_out: Judged: eval_summary.json on disk",
+     "src": "kernel_v9smoke/v11_out/"
+    },
+    {
+     "t": "12:40 IST",
+     "text": "D-036 \u2014 v11 expr audit verdict + switch-route decision",
+     "src": "launch_work/D-036_V11_AUDIT_SWITCH_ROUTE.md"
+    },
+    {
+     "t": "12:40 IST",
+     "text": "Countersign v12 done",
+     "src": "launch_work/COUNTERSIGN_V12.md"
+    },
+    {
+     "t": "12:36 IST",
+     "text": "Latest notebook pathl_finetune_v12.ipynb (countersigned, pushed)",
+     "src": "kernel_v9smoke/push/"
+    }
+   ],
+   "evidence": "kernel_v9smoke/push/; launch_work/ (scan)"
+  },
+  {
+   "id": "lane-pathi",
+   "section": "lanes",
+   "name": "Path I (IMTalker)",
+   "sub": "Parked by founder order",
+   "state": "parked",
+   "task": "PAUSED 24 Oct \u2014 resumes only when Anuj lifts the pause; manifest 737 clips / 2.4567 h",
+   "last": "Hold filed 24 Oct 16:30 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "24 Oct 16:30 IST",
+     "text": "Freeze confirmed complete; HOLD file written",
+     "src": "route_b_package/corpus_v2/HOLD_STATE_20261024.md"
+    },
+    {
+     "t": "24 Oct",
+     "text": "Pinned verdicts ALL FAIL; no candidate exported",
+     "src": "route_b_package/"
+    },
+    {
+     "t": "24 Oct",
+     "text": "Encoder decision settled: wav2vec2-base-960h stays",
+     "src": "route_b_package/"
+    }
+   ],
+   "evidence": "route_b_package/corpus_v2/HOLD_STATE_20261024.md; route_b_package/corpus_v2/dataset/corpus_manifest.jsonl"
+  },
+  {
+   "id": "lane-rio",
+   "section": "lanes",
+   "name": "Rio Live (animated Rio)",
+   "sub": "V16 on tablet",
+   "state": "waiting",
+   "task": "V16 delivered + verified; morning device test still decides 'final'; daughters demo follows",
+   "last": "V16 APK 25 Oct 00:24 IST; device test pending",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "12:05 IST",
+     "text": "Voice update: v11 audit verdict (via postbox)",
+     "src": "rio-postbox/updates/20261025-120541.json"
+    },
+    {
+     "t": "00:26 IST",
+     "text": "Session fast path live (20 s brain pickup)",
+     "src": "cron rio-postbox-watch body"
+    },
+    {
+     "t": "00:24 IST",
+     "text": "V16 delivered + Drive-verified (12,880,288 B)",
+     "src": "rio-live/out/rio-live-v16-debug.apk"
+    },
+    {
+     "t": "24 Oct 22:47 IST",
+     "text": "V15 delivered (superseded by V16)",
+     "src": "rio-live/out/rio-live-v15-debug.apk"
+    }
+   ],
+   "evidence": "rio-live/out/rio-live-v16-debug.apk; rio-postbox/updates/"
+  },
+  {
+   "id": "lane-corpus",
+   "section": "lanes",
+   "name": "Corpus scale (training videos)",
+   "sub": "Real-human footage only; zero synthetic, zero Anam",
+   "state": "waiting",
+   "task": "b5 done: 35 clips / 257.8 s (hi 21, mr 14); owed: male speakers 0/35",
+   "last": "Manifest 10:25 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "11:00 IST",
+     "text": "Triveni adult guard CLEARED (4/14 clips frame-inspected)",
+     "src": "pathl_corpus_scale/TRIVENI_ADULT_SPOTCHECK_20261025.md"
+    },
+    {
+     "t": "10:26 IST",
+     "text": "b5 COMPLETE: +14 Triveni clips (first Marathi in scale)",
+     "src": "pathl_corpus_scale/B5_REPORT_20261025.md"
+    },
+    {
+     "t": "10:26 IST",
+     "text": "Top-5 log spot-check: all 14 top-1 = mr",
+     "src": "pathl_corpus_scale/B5_REPORT_20261025.md"
+    },
+    {
+     "t": "09:27 IST",
+     "text": "Language proof adopted-with-caution (hi 91.7%, mr 66.7%)",
+     "src": "pathl_corpus_scale/LANGUAGE_PROOF_VALIDATION_20261025.md"
+    }
+   ],
+   "evidence": "pathl_corpus_scale/dataset/corpus_manifest.jsonl"
+  },
+  {
+   "id": "lane-outreach",
+   "section": "lanes",
+   "name": "Outreach (partners / licences)",
+   "sub": "Founder voice; substantive replies escalate to Anuj",
+   "state": "waiting",
+   "task": "MuseTalk #428 + NavTalk #32 posted, no replies yet; Paul awaiting moderator approval",
+   "last": "Posted 10:28 / 10:40 IST; last check no replies",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "10:40 IST",
+     "text": "NavTalk issue #32 posted + verified live",
+     "src": "github.com/navtalk/Samples/issues/32"
+    },
+    {
+     "t": "10:28 IST",
+     "text": "MuseTalk issue #428 posted + verified live",
+     "src": "github.com/TMElyralab/MuseTalk/issues/428"
+    },
+    {
+     "t": "24 Oct 22:47 IST",
+     "text": "Paul/Bubble fallback reply posted, AWAITING APPROVAL",
+     "src": "forum.bubble.io (Paul thread)"
+    },
+    {
+     "t": "24 Oct 19:54 IST",
+     "text": "Ask HN thread live (NavTalk + Outspeak, zero disclosure)",
+     "src": "news.ycombinator.com/item?id=50221241"
+    }
+   ],
+   "evidence": "github issues #428 / #32 (public pages)"
+  },
+  {
+   "id": "lane-research",
+   "section": "lanes",
+   "name": "Research",
+   "sub": "Latest deliverable done",
+   "state": "done",
+   "task": "Beloved live-avatar feelings page delivered 25 Oct; next research on demand",
+   "last": "Report 25 Oct ~10:02 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "25 Oct 10:02 IST",
+     "text": "Beloved live-avatar feelings page delivered + presented",
+     "src": "research_notes/beloved-live-avatar-feelings-20261025-0428/"
+    },
+    {
+     "t": "24 Oct 17:55 IST",
+     "text": "Open-code research delivered (no ready-made repo closes gap)",
+     "src": "research_notes/open-code-talking-face-rio-20261024-1216/"
+    },
+    {
+     "t": "24 Oct 15:53 IST",
+     "text": "98%-gap deep research delivered (top-5 fed P13/P13.1)",
+     "src": "research_notes/talking-face-98-percent-gap-20261024-1018/"
+    }
+   ],
+   "evidence": "research_notes/beloved-live-avatar-feelings-20261025-0428/report.md"
+  },
+  {
+   "id": "lane-review",
+   "section": "lanes",
+   "name": "Correction review (tomorrow, 26 Oct)",
+   "sub": "NOT-98% / NOT-final by label; his + mother's eyes decide",
+   "state": "waiting",
+   "task": "Hypothesis + package drafts ready; delivery version still to finalize; video-material gap open (r8/r9 videos not on box)",
+   "last": "Draft 10:55 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "11:00 IST",
+     "text": "Package draft assembled (hypothesis + pins + honesty note)",
+     "src": "hidden_files/CORRECTION_REVIEW_PACKAGE_DRAFT_20261025.md"
+    },
+    {
+     "t": "10:41 IST",
+     "text": "Hypothesis draft written (listening-first, mother's moments)",
+     "src": "hidden_files/CORRECTION_REVIEW_HYPOTHESIS_DRAFT_20261025.md"
+    },
+    {
+     "t": "09:57 IST",
+     "text": "Anuj ordered correction review for tomorrow",
+     "src": "main chat"
+    }
+   ],
+   "evidence": "hidden_files/CORRECTION_REVIEW_PACKAGE_DRAFT_20261025.md"
+  },
+  {
+   "id": "lane-bridge",
+   "section": "lanes",
+   "name": "Bridge loop (Hark channel)",
+   "sub": "Hark parked; loop audits only",
+   "state": "parked",
+   "task": "Hark silent since 23 Oct 04:52 IST; loop audited 12:51 IST; term ends after 8 Nov",
+   "last": "STATUS.md 12:51 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "12:31 IST",
+     "text": "AUDIT 528: quiet cycle, zero Hark change",
+     "src": "bridge STATUS.md"
+    },
+    {
+     "t": "23 Oct 04:52 IST",
+     "text": "Hark's last observed activity",
+     "src": "bridge STATUS.md"
+    },
+    {
+     "t": "22 Oct",
+     "text": "FINAL HANDOVER: Rio sole CTO until HANDBACK",
+     "src": "bridge FINAL_HANDOVER.md"
+    }
+   ],
+   "evidence": "bridge STATUS.md"
+  },
+  {
+   "id": "watch-board-refresh",
+   "section": "resources",
+   "name": "Board refresh (this board)",
+   "sub": "Every 5 min \u2014 regenerates board state",
+   "state": "working",
+   "task": "Board state writer last ran 13:01 IST (cron or manual)",
+   "last": "Writer run 13:01 IST",
+   "window_min": 30,
+   "events": [
+    {
+     "t": "13:01 IST",
+     "text": "State regenerated (discovery scan included)",
+     "src": "hidden_files/live_ops_board/write_state.py"
+    }
+   ],
+   "evidence": "hidden_files/live_ops_board/discovered.json"
+  },
+  {
+   "id": "ver-latest",
+   "section": "resources",
+   "name": "Kernel v12 notebook (latest)",
+   "sub": "Auto-discovered \u2014 newest notebook on file",
+   "state": "waiting",
+   "task": "Notebook pathl_finetune_v12.ipynb; countersign: countersigned; pushed: pushed",
+   "last": "Notebook 12:36 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "12:36 IST",
+     "text": "Notebook pathl_finetune_v12.ipynb (countersigned, pushed)",
+     "src": "kernel_v9smoke/push/pathl_finetune_v12.ipynb"
+    }
+   ],
+   "evidence": "kernel_v9smoke/push/pathl_finetune_v12.ipynb"
+  },
+  {
+   "id": "run-kernel_v9smoke-v11_out",
+   "section": "resources",
+   "name": "Smoke run kernel_v9smoke/v11_out",
+   "sub": "Auto-discovered \u2014 run outputs on disk",
+   "state": "done",
+   "task": "Judged: eval_summary.json on disk",
+   "last": "Outputs 11:31 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "11:31 IST",
+     "text": "Judged: eval_summary.json on disk",
+     "src": "kernel_v9smoke/v11_out/"
+    }
+   ],
+   "evidence": "kernel_v9smoke/v11_out/"
+  },
+  {
+   "id": "run-kernel_v9smoke-v10_out",
+   "section": "resources",
+   "name": "Smoke run kernel_v9smoke/v10_out",
+   "sub": "Auto-discovered \u2014 run outputs on disk",
+   "state": "done",
+   "task": "Judged: eval_summary.json on disk",
+   "last": "Outputs 10:27 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "10:27 IST",
+     "text": "Judged: eval_summary.json on disk",
+     "src": "kernel_v9smoke/v10_out/"
+    }
+   ],
+   "evidence": "kernel_v9smoke/v10_out/"
+  },
+  {
+   "id": "run-kernel_v9smoke-v2_out",
+   "section": "resources",
+   "name": "Smoke run kernel_v9smoke/v2_out",
+   "sub": "Auto-discovered \u2014 run outputs on disk",
+   "state": "waiting",
+   "task": "Run dir present; no outcome files yet",
+   "last": "Outputs 22:27 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "22:27 IST",
+     "text": "Run dir present; no outcome files yet",
+     "src": "kernel_v9smoke/v2_out/"
+    }
+   ],
+   "evidence": "kernel_v9smoke/v2_out/"
+  },
+  {
+   "id": "run-kernel_main7-v7_out",
+   "section": "resources",
+   "name": "Smoke run kernel_main7/v7_out",
+   "sub": "Auto-discovered \u2014 run outputs on disk",
+   "state": "done",
+   "task": "Judged: eval_summary.json on disk",
+   "last": "Outputs 08:58 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "08:58 IST",
+     "text": "Judged: eval_summary.json on disk",
+     "src": "kernel_main7/v7_out/"
+    }
+   ],
+   "evidence": "kernel_main7/v7_out/"
+  },
+  {
+   "id": "run-kernel_main6-v6_out",
+   "section": "resources",
+   "name": "Smoke run kernel_main6/v6_out",
+   "sub": "Auto-discovered \u2014 run outputs on disk",
+   "state": "waiting",
+   "task": "Run dir present; no outcome files yet",
+   "last": "Outputs 07:56 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "07:56 IST",
+     "text": "Run dir present; no outcome files yet",
+     "src": "kernel_main6/v6_out/"
+    }
+   ],
+   "evidence": "kernel_main6/v6_out/"
+  },
+  {
+   "id": "run-kernel_main5-v5_out",
+   "section": "resources",
+   "name": "Smoke run kernel_main5/v5_out",
+   "sub": "Auto-discovered \u2014 run outputs on disk",
+   "state": "waiting",
+   "task": "Run dir present; no outcome files yet",
+   "last": "Outputs 07:37 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "07:37 IST",
+     "text": "Run dir present; no outcome files yet",
+     "src": "kernel_main5/v5_out/"
+    }
+   ],
+   "evidence": "kernel_main5/v5_out/"
+  },
+  {
+   "id": "run-kernel_main4-v4_out",
+   "section": "resources",
+   "name": "Smoke run kernel_main4/v4_out",
+   "sub": "Auto-discovered \u2014 run outputs on disk",
+   "state": "waiting",
+   "task": "Run dir present; no outcome files yet",
+   "last": "Outputs 07:07 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "07:07 IST",
+     "text": "Run dir present; no outcome files yet",
+     "src": "kernel_main4/v4_out/"
+    }
+   ],
+   "evidence": "kernel_main4/v4_out/"
+  },
+  {
+   "id": "run-kernel_main3-v3_out",
+   "section": "resources",
+   "name": "Smoke run kernel_main3/v3_out",
+   "sub": "Auto-discovered \u2014 run outputs on disk",
+   "state": "done",
+   "task": "Judged: eval_summary.json on disk",
+   "last": "Outputs 06:42 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "06:42 IST",
+     "text": "Judged: eval_summary.json on disk",
+     "src": "kernel_main3/v3_out/"
+    }
+   ],
+   "evidence": "kernel_main3/v3_out/"
+  },
+  {
+   "id": "run-kernel_main3-v2_out",
+   "section": "resources",
+   "name": "Smoke run kernel_main3/v2_out",
+   "sub": "Auto-discovered \u2014 run outputs on disk",
+   "state": "done",
+   "task": "Judged: eval_summary.json on disk",
+   "last": "Outputs 05:57 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "05:57 IST",
+     "text": "Judged: eval_summary.json on disk",
+     "src": "kernel_main3/v2_out/"
+    }
+   ],
+   "evidence": "kernel_main3/v2_out/"
+  },
+  {
+   "id": "cron-anuj-status-10min",
+   "section": "resources",
+   "name": "Cron: anuj-status-10min",
+   "sub": "Auto-discovered \u2014 scheduled job",
+   "state": "parked",
+   "task": "Scheduled (interval 10m); DISABLED in file",
+   "last": "Job file 16:29 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "16:29 IST",
+     "text": "Job file anuj-status-10min (disabled)",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/crons/minutely/anuj-status-10min__interval@10m.md"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/crons/minutely/anuj-status-10min__interval@10m.md"
+  },
+  {
+   "id": "cron-rio-v9-8am-readiness",
+   "section": "resources",
+   "name": "Cron: rio-v9-8am-readiness",
+   "sub": "Auto-discovered \u2014 scheduled job",
+   "state": "waiting",
+   "task": "Scheduled (runonce 2026-10-23T07:30:00); one-time job, date passed \u2014 check runs before assuming pending",
+   "last": "Job file 20:11 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "20:11 IST",
+     "text": "Job file rio-v9-8am-readiness (enabled)",
+     "src": "/home/hatch/workspace/goals/conversational-rio-voice-first-personal-assistant/crons/runonce/rio-v9-8am-readiness__runonce@2026-10-23T07:30:00.md"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/conversational-rio-voice-first-personal-assistant/crons/runonce/rio-v9-8am-readiness__runonce@2026-10-23T07:30:00.md"
+  }
+ ]
+};</script>
+<!-- STATE-END -->
+
+<script>
+var EMBEDDED = (typeof LIVE_OPS_STATE !== "undefined" && LIVE_OPS_STATE) ? LIVE_OPS_STATE : null;
+function pill(state){
+  var label = {"working":"● WORKING","waiting":"◐ WAITING","parked":"■ PARKED","idle":"○ IDLE / AVAILABLE","done":"✓ DONE","stuck":"⚠ STUCK"}[state] || state;
+  return '<span class="pill '+state+'">'+label+'</span>';
+}
+function card(n, wide){
+  var b = document.createElement("button");
+  b.className = "card" + (wide ? " wide" : "");
+  b.innerHTML = pill(n.state) + '<div class="name">'+n.name+'</div>'
+    + '<div class="role">'+n.sub+'</div>'
+    + '<div class="task">'+n.task+'</div>'
+    + '<div class="last">Last movement: '+n.last+'</div>';
+  b.onclick = function(){
+    document.getElementById("sname").textContent = n.name + " — " + n.state.toUpperCase();
+    document.getElementById("smeta").innerHTML = "<b>Now:</b> "+n.task+"<br><b>Last movement:</b> "+n.last;
+    document.getElementById("sevents").innerHTML = (n.events||[]).map(function(e){
+      return "<li><b>"+e.t+"</b> — "+e.text+'<br><span class="src">Source: '+e.src+"</span></li>";
+    }).join("") || "<li>No events recorded.</li>";
+    document.getElementById("ssrc").textContent = "Evidence file(s): " + (n.evidence || "—");
+    document.getElementById("sheet").style.display = "block";
+  };
+  return b;
+}
+function renderBoard(S, live){
+  var gen = document.getElementById("genline");
+  if (!S) {
+    gen.textContent = "State not loaded — regenerate with write_state.py.";
+    return;
+  }
+  if (live) {
+    gen.textContent = "● LIVE — State as of " + S.generated_ist + " · Tap any node for its brief history.";
+    document.getElementById("snapbanner").style.display = "none";
+  } else {
+    gen.textContent = "○ SNAPSHOT as of " + S.generated_ist + " — live state unreachable (state file not served alongside this page) · Tap any node for its brief history.";
+    document.getElementById("snapbanner").style.display = "block";
+  }
+  document.getElementById("refreshline").textContent = S.refresh_rule;
+  document.getElementById("honesty").textContent = S.honesty;
+  var team = document.getElementById("teamgrid"), lanes = document.getElementById("lanegrid"), res = document.getElementById("resgrid");
+  S.nodes.forEach(function(n){
+    var wide = (n.id === "mdcto");
+    var grid = (n.section === "lanes" ? lanes : (n.section === "team" ? team : res));
+    grid.appendChild(card(n, wide));
+  });
+  document.getElementById("flow").innerHTML = S.flow.map(function(f, i){
+    return (i ? '<span class="arrow">→</span>' : '') +
+      '<span class="step">' + f.from + (i === S.flow.length-1 ? ' <span class="arrow">→</span> <b>'+f.to+'</b>' : '') +
+      '<br><span class="s">' + f.state.toUpperCase() + '</span></span>';
+  }).join("");
+}
+/* LIVE-ON-OPEN (v1.1): fetch fresh state on every open, cache-busted so a
+   tap never serves a cached copy. The baked-in snapshot is ONLY a fallback,
+   and fallback renders are labeled SNAPSHOT, never disguised as live. */
+if (typeof fetch === "function") {
+  fetch("live-ops-state.json?ts=" + Date.now(), {cache: "no-store"})
+    .then(function(r){ if (!r.ok) throw new Error("state HTTP " + r.status); return r.json(); })
+    .then(function(j){ if (j && j.nodes) { renderBoard(j, true); } else { renderBoard(EMBEDDED, false); } })
+    .catch(function(){ renderBoard(EMBEDDED, false); });
+} else {
+  renderBoard(EMBEDDED, false);
+}
+</script>
+</body>
+</html>
