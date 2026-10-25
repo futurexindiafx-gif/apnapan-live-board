@@ -1,6 +1,6 @@
 {
- "generated_ist": "2026-10-25T20:50:11+05:30",
- "generated_label": "Current when opened: 20:50 IST",
+ "generated_ist": "2026-10-25T20:55:10+05:30",
+ "generated_label": "Current when opened: 20:55 IST",
  "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
  "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
  "flow": [
@@ -38,7 +38,7 @@
    "sub": "AI brain, top node",
    "state": "working",
    "task": "Latest decision: COUNTERSIGN ON D-042 (v17 smoke adjudication) \u2014 VERDICT CORRECTED: MEASUREMENT-UNRESOLVED (NO-GO) \u00b7 Focus: engine + Rio + tomorrow's review",
-   "last": "Latest decision 20:44 IST",
+   "last": "Latest decision 20:53 IST",
    "window_min": 180,
    "events": [
     {
@@ -350,12 +350,12 @@
    "name": "Postbox watch (Rio voice)",
    "sub": "Every 2 min \u2014 answers Anuj's spoken instructions",
    "state": "working",
-   "task": "Last run 20:47 IST, quiet (inbox empty) | Latest voice update 20261025-201445: Version seventeen finished \u2014 best run yet, no pass announced",
-   "last": "Last run 20:47 IST (memory log)",
+   "task": "Last run 20:50 IST, quiet (inbox empty) | Latest voice update 20261025-201445: Version seventeen finished \u2014 best run yet, no pass announced",
+   "last": "Last run 20:50 IST (memory log)",
    "window_min": 30,
    "events": [
     {
-     "t": "20:47 IST",
+     "t": "20:50 IST",
      "text": "Quiet run: inbox empty, no session, no update filed",
      "src": "~/memory/2026-10-25.md"
     },
@@ -411,8 +411,8 @@
    "name": "Engine watchdog",
    "sub": "Every 20 min \u2014 stall check, Muse only, never messages user",
    "state": "working",
-   "task": "Last run 20261025_2032 (all lanes moving, no stall)",
-   "last": "State file 20:33 IST",
+   "task": "Last run 20261025_2052 (all lanes moving, no stall)",
+   "last": "State file 20:53 IST",
    "window_min": 60,
    "events": [
     {
@@ -716,12 +716,12 @@
    "name": "Board refresh (this board)",
    "sub": "Every 5 min \u2014 regenerates board state",
    "state": "working",
-   "task": "Board state writer last ran 20:50 IST (cron or manual)",
-   "last": "Writer run 20:50 IST",
+   "task": "Board state writer last ran 20:55 IST (cron or manual)",
+   "last": "Writer run 20:55 IST",
    "window_min": 30,
    "events": [
     {
-     "t": "20:50 IST",
+     "t": "20:55 IST",
      "text": "State regenerated (discovery scan included)",
      "src": "hidden_files/live_ops_board/write_state.py"
     }
@@ -950,8 +950,8 @@
    "name": "Auto-discovered: v17_fetch",
    "sub": "Auto-discovered \u2014 work",
    "state": "working",
-   "task": "work \u2014 first seen 19:55, last movement 20:28",
-   "last": "Last movement 20:28 IST",
+   "task": "work \u2014 first seen 19:55, last movement 20:54",
+   "last": "Last movement 20:54 IST",
    "window_min": 60,
    "events": [
     {
