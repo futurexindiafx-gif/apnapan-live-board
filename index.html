@@ -78,25 +78,25 @@
 
 <!-- STATE-START -->
 <script>var LIVE_OPS_STATE = {
- "generated_ist": "2026-10-25T13:25:10+05:30",
- "generated_label": "Current when opened: 13:25 IST",
+ "generated_ist": "2026-10-25T13:30:11+05:30",
+ "generated_label": "Current when opened: 13:30 IST",
  "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
  "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
  "flow": [
   {
-   "from": "v12 notebook (latest)",
+   "from": "v13 notebook (latest)",
    "to": "decision",
    "state": "done"
   },
   {
-   "from": "Latest decision: D-037 \u2014 Path L smoke v12: NO VERDICT (stage A died",
+   "from": "Latest decision: GATE RECORD \u2014 Path L v13 (patched-launch-gate)",
    "to": "countersign",
-   "state": "done"
+   "state": "waiting"
   },
   {
    "from": "Countersign",
    "to": "pushed",
-   "state": "done"
+   "state": "waiting"
   },
   {
    "from": "Pushed",
@@ -116,10 +116,20 @@
    "name": "Muse \u2014 MD / CTO",
    "sub": "AI brain, top node",
    "state": "working",
-   "task": "Latest decision: D-037 \u2014 Path L smoke v12: NO VERDICT (stage A died at batch 0; the D-036 expr fix was never tested) \u00b7 Focus: engine + Rio + tomorrow's review",
-   "last": "Latest decision 13:21 IST",
+   "task": "Latest decision: GATE RECORD \u2014 Path L v13 (patched-launch-gate) \u00b7 Focus: engine + Rio + tomorrow's review",
+   "last": "Latest decision 13:26 IST",
    "window_min": 180,
    "events": [
+    {
+     "t": "13:26 IST",
+     "text": "GATE RECORD \u2014 Path L v13 (patched-launch-gate)",
+     "src": "launch_work/GATE_RECORD_V13.md"
+    },
+    {
+     "t": "13:26 IST",
+     "text": "FIX_NOTE_V12 \u2014 v12 diagnosis \u2192 v13 fix (D-037 NO VERDICT \u2192 re-smoke)",
+     "src": "launch_work/FIX_NOTE_V12.md"
+    },
     {
      "t": "13:10 IST",
      "text": "D-037 \u2014 Path L smoke v12: NO VERDICT (stage A died at batch 0; the D-036 expr fix was never tested)",
@@ -134,16 +144,6 @@
      "t": "12:40 IST",
      "text": "COUNTERSIGN \u2014 Path L smoke v12 (Muse independent check, 25 Oct 2026 ~12:40 IST)",
      "src": "launch_work/COUNTERSIGN_V12.md"
-    },
-    {
-     "t": "12:36 IST",
-     "text": "GATE RECORD \u2014 Path L v12 (patched-launch-gate)",
-     "src": "launch_work/GATE_RECORD_V12.md"
-    },
-    {
-     "t": "12:36 IST",
-     "text": "FIX_NOTE_V11 \u2014 v11 diagnosis \u2192 v12 fixes (D-035 STOP \u2192 D-036 FIX + RE-SMOKE)",
-     "src": "launch_work/FIX_NOTE_V11.md"
     }
    ],
    "evidence": "launch_work/D-*.md, COUNTERSIGN_*.md (scan)"
@@ -429,12 +429,12 @@
    "name": "Postbox watch (Rio voice)",
    "sub": "Every 2 min \u2014 answers Anuj's spoken instructions",
    "state": "working",
-   "task": "Last run 13:05 IST, quiet (inbox empty) | Latest voice update 20261025-131204: Version twelve gives no verdict on the expression fix",
-   "last": "Last run 13:05 IST (memory log)",
+   "task": "Last run 13:29 IST, quiet (inbox empty) | Latest voice update 20261025-131204: Version twelve gives no verdict on the expression fix",
+   "last": "Last run 13:29 IST (memory log)",
    "window_min": 30,
    "events": [
     {
-     "t": "13:05 IST",
+     "t": "13:29 IST",
      "text": "Quiet run: inbox empty, no session, no update filed",
      "src": "~/memory/2026-10-25.md"
     },
@@ -551,8 +551,8 @@
    "name": "Path L engine",
    "sub": "Lead engine lane",
    "state": "working",
-   "task": "v12 notebook, countersigned, pushed; no v12 run dir yet; newest judged run v11_out (Judged: eval_summary.json on disk)",
-   "last": "Latest movement 13:10 IST",
+   "task": "v13 notebook, countersign pending, not pushed; no v13 run dir yet; newest judged run v11_out (Judged: eval_summary.json on disk)",
+   "last": "Latest movement 13:26 IST",
    "window_min": 90,
    "events": [
     {
@@ -561,18 +561,13 @@
      "src": "kernel_v9smoke/v11_out/"
     },
     {
-     "t": "13:10 IST",
-     "text": "D-037 \u2014 Path L smoke v12: NO VERDICT (stage A died at batch 0; the D-036 expr fix was never tested)",
-     "src": "launch_work/D-037_V12_SMOKE_NO_VERDICT.md"
+     "t": "13:26 IST",
+     "text": "GATE RECORD \u2014 Path L v13 (patched-launch-gate)",
+     "src": "launch_work/GATE_RECORD_V13.md"
     },
     {
-     "t": "12:40 IST",
-     "text": "Countersign v12 done",
-     "src": "launch_work/COUNTERSIGN_V12.md"
-    },
-    {
-     "t": "12:36 IST",
-     "text": "Latest notebook pathl_finetune_v12.ipynb (countersigned, pushed)",
+     "t": "13:25 IST",
+     "text": "Latest notebook pathl_finetune_v13.ipynb (countersign pending, not pushed)",
      "src": "kernel_v9smoke/push/"
     }
    ],
@@ -795,12 +790,12 @@
    "name": "Board refresh (this board)",
    "sub": "Every 5 min \u2014 regenerates board state",
    "state": "working",
-   "task": "Board state writer last ran 13:25 IST (cron or manual)",
-   "last": "Writer run 13:25 IST",
+   "task": "Board state writer last ran 13:30 IST (cron or manual)",
+   "last": "Writer run 13:30 IST",
    "window_min": 30,
    "events": [
     {
-     "t": "13:25 IST",
+     "t": "13:30 IST",
      "text": "State regenerated (discovery scan included)",
      "src": "hidden_files/live_ops_board/write_state.py"
     }
@@ -810,20 +805,20 @@
   {
    "id": "ver-latest",
    "section": "resources",
-   "name": "Kernel v12 notebook (latest)",
+   "name": "Kernel v13 notebook (latest)",
    "sub": "Auto-discovered \u2014 newest notebook on file",
    "state": "waiting",
-   "task": "Notebook pathl_finetune_v12.ipynb; countersign: countersigned; pushed: pushed",
-   "last": "Notebook 12:36 IST",
+   "task": "Notebook pathl_finetune_v13.ipynb; countersign: countersign pending; pushed: not pushed",
+   "last": "Notebook 13:25 IST",
    "window_min": 0,
    "events": [
     {
-     "t": "12:36 IST",
-     "text": "Notebook pathl_finetune_v12.ipynb (countersigned, pushed)",
-     "src": "kernel_v9smoke/push/pathl_finetune_v12.ipynb"
+     "t": "13:25 IST",
+     "text": "Notebook pathl_finetune_v13.ipynb (countersign pending, not pushed)",
+     "src": "kernel_v9smoke/push/pathl_finetune_v13.ipynb"
     }
    ],
-   "evidence": "kernel_v9smoke/push/pathl_finetune_v12.ipynb"
+   "evidence": "kernel_v9smoke/push/pathl_finetune_v13.ipynb"
   },
   {
    "id": "run-kernel_v9smoke-v11_out",
@@ -1022,6 +1017,42 @@
     }
    ],
    "evidence": "/home/hatch/workspace/goals/conversational-rio-voice-first-personal-assistant/crons/runonce/rio-v9-8am-readiness__runonce@2026-10-23T07:30:00.md"
+  },
+  {
+   "id": "disc-V13-BUILD-NOTE-md-450028",
+   "section": "resources",
+   "name": "Auto-discovered: V13_BUILD_NOTE.md",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "done",
+   "task": "work \u2014 first seen 13:30, last movement 13:26",
+   "last": "Last movement 13:26 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "13:30",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/V13_BUILD_NOTE.md"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/V13_BUILD_NOTE.md"
+  },
+  {
+   "id": "disc-push-2e1441",
+   "section": "resources",
+   "name": "Auto-discovered: push",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "working",
+   "task": "work \u2014 first seen 13:30, last movement 13:25",
+   "last": "Last movement 13:25 IST",
+   "window_min": 60,
+   "events": [
+    {
+     "t": "13:30",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/push"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/push"
   },
   {
    "id": "disc-correction-review-20261026-md-59806e",
