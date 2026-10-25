@@ -1,6 +1,6 @@
 {
- "generated_ist": "2026-10-25T16:10:11+05:30",
- "generated_label": "Current when opened: 16:10 IST",
+ "generated_ist": "2026-10-25T16:15:11+05:30",
+ "generated_label": "Current when opened: 16:15 IST",
  "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
  "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
  "flow": [
@@ -10,7 +10,7 @@
    "state": "done"
   },
   {
-   "from": "Latest decision: D-038 ADDENDUM \u2014 ft_off attribution WAIVED as non-",
+   "from": "Latest decision: GATE RECORD \u2014 Path L v14 smoke build (patched-laun",
    "to": "countersign",
    "state": "waiting"
   },
@@ -37,10 +37,15 @@
    "name": "Muse \u2014 MD / CTO",
    "sub": "AI brain, top node",
    "state": "working",
-   "task": "Latest decision: D-038 ADDENDUM \u2014 ft_off attribution WAIVED as non-blocking (NO-GO lifted for v14 BUILD) \u00b7 Focus: engine + Rio + tomorrow's review",
-   "last": "Latest decision 16:01 IST",
+   "task": "Latest decision: GATE RECORD \u2014 Path L v14 smoke build (patched-launch-gate) \u00b7 Focus: engine + Rio + tomorrow's review",
+   "last": "Latest decision 16:14 IST",
    "window_min": 180,
    "events": [
+    {
+     "t": "16:14 IST",
+     "text": "GATE RECORD \u2014 Path L v14 smoke build (patched-launch-gate)",
+     "src": "launch_work/GATE_RECORD_V14.md"
+    },
     {
      "t": "15:49 IST",
      "text": "D-038 ADDENDUM \u2014 ft_off attribution WAIVED as non-blocking (NO-GO lifted for v14 BUILD)",
@@ -60,11 +65,6 @@
      "t": "13:34 IST",
      "text": "COUNTERSIGN \u2014 Path L smoke v13 (Muse independent check, 25 Oct 2026 ~13:35 IST)",
      "src": "launch_work/COUNTERSIGN_V13.md"
-    },
-    {
-     "t": "13:33 IST",
-     "text": "FIX_NOTE_V12 \u2014 v12 diagnosis \u2192 v13 fix (D-037 NO VERDICT \u2192 re-smoke)",
-     "src": "launch_work/FIX_NOTE_V12.md"
     }
    ],
    "evidence": "launch_work/D-*.md, COUNTERSIGN_*.md (scan)"
@@ -411,8 +411,8 @@
    "name": "Engine watchdog",
    "sub": "Every 20 min \u2014 stall check, Muse only, never messages user",
    "state": "working",
-   "task": "Last run 20261025_1552 (all lanes moving, no stall)",
-   "last": "State file 15:52 IST",
+   "task": "Last run 20261025_1612 (all lanes moving, no stall)",
+   "last": "State file 16:13 IST",
    "window_min": 60,
    "events": [
     {
@@ -439,8 +439,8 @@
    "name": "Bridge sync (Hark loop)",
    "sub": "Every 10 min \u2014 repo audit; Hark parked since 22 Oct",
    "state": "working",
-   "task": "AUDIT 528 quiet cycle 16:01 IST",
-   "last": "State file 16:01 IST",
+   "task": "AUDIT 528 quiet cycle 16:11 IST",
+   "last": "State file 16:11 IST",
    "window_min": 60,
    "events": [
     {
@@ -473,7 +473,7 @@
    "sub": "Lead engine lane",
    "state": "working",
    "task": "v14 notebook, countersign pending, not pushed; no v14 run dir yet; newest judged run v11_out (Judged: eval_summary.json on disk)",
-   "last": "Latest movement 16:09 IST",
+   "last": "Latest movement 16:14 IST",
    "window_min": 90,
    "events": [
     {
@@ -482,9 +482,9 @@
      "src": "kernel_v9smoke/v11_out/"
     },
     {
-     "t": "15:49 IST",
-     "text": "D-038 ADDENDUM \u2014 ft_off attribution WAIVED as non-blocking (NO-GO lifted for v14 BUILD)",
-     "src": "launch_work/D-038_ADDENDUM_FT_OFF_WAIVER.md"
+     "t": "16:14 IST",
+     "text": "GATE RECORD \u2014 Path L v14 smoke build (patched-launch-gate)",
+     "src": "launch_work/GATE_RECORD_V14.md"
     },
     {
      "t": "16:09 IST",
@@ -683,8 +683,8 @@
    "name": "Bridge loop (Hark channel)",
    "sub": "Hark parked; loop audits only",
    "state": "parked",
-   "task": "Hark silent since 23 Oct 04:52 IST; loop audited 16:01 IST; term ends after 8 Nov",
-   "last": "STATUS.md 16:01 IST",
+   "task": "Hark silent since 23 Oct 04:52 IST; loop audited 16:11 IST; term ends after 8 Nov",
+   "last": "STATUS.md 16:11 IST",
    "window_min": 0,
    "events": [
     {
@@ -711,12 +711,12 @@
    "name": "Board refresh (this board)",
    "sub": "Every 5 min \u2014 regenerates board state",
    "state": "working",
-   "task": "Board state writer last ran 16:10 IST (cron or manual)",
-   "last": "Writer run 16:10 IST",
+   "task": "Board state writer last ran 16:15 IST (cron or manual)",
+   "last": "Writer run 16:15 IST",
    "window_min": 30,
    "events": [
     {
-     "t": "16:10 IST",
+     "t": "16:15 IST",
      "text": "State regenerated (discovery scan included)",
      "src": "hidden_files/live_ops_board/write_state.py"
     }
@@ -938,6 +938,24 @@
     }
    ],
    "evidence": "/home/hatch/workspace/goals/conversational-rio-voice-first-personal-assistant/crons/runonce/rio-v9-8am-readiness__runonce@2026-10-23T07:30:00.md"
+  },
+  {
+   "id": "disc-V14-BUILD-NOTE-md-94b5c5",
+   "section": "resources",
+   "name": "Auto-discovered: V14_BUILD_NOTE.md",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "done",
+   "task": "work \u2014 first seen 16:15, last movement 16:13",
+   "last": "Last movement 16:13 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "16:15",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/V14_BUILD_NOTE.md"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/V14_BUILD_NOTE.md"
   },
   {
    "id": "disc-push-2e1441",
