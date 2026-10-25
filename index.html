@@ -78,8 +78,8 @@
 
 <!-- STATE-START -->
 <script>var LIVE_OPS_STATE = {
- "generated_ist": "2026-10-25T16:35:12+05:30",
- "generated_label": "Current when opened: 16:35 IST",
+ "generated_ist": "2026-10-25T16:40:10+05:30",
+ "generated_label": "Current when opened: 16:40 IST",
  "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
  "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
  "flow": [
@@ -89,7 +89,7 @@
    "state": "done"
   },
   {
-   "from": "Latest decision: COUNTERSIGN \u2014 Path L v14 smoke (Muse, independent,",
+   "from": "Latest decision: D-039 \u2014 Path L v14 smoke: NO VERDICT (kernel ERROR",
    "to": "countersign",
    "state": "done"
   },
@@ -116,10 +116,15 @@
    "name": "Muse \u2014 MD / CTO",
    "sub": "AI brain, top node",
    "state": "working",
-   "task": "Latest decision: COUNTERSIGN \u2014 Path L v14 smoke (Muse, independent, 25 Oct 2026 ~16:20 IST) \u00b7 Focus: engine + Rio + tomorrow's review",
-   "last": "Latest decision 16:34 IST",
+   "task": "Latest decision: D-039 \u2014 Path L v14 smoke: NO VERDICT (kernel ERROR before training) \u00b7 Focus: engine + Rio + tomorrow's review",
+   "last": "Latest decision 16:38 IST",
    "window_min": 180,
    "events": [
+    {
+     "t": "16:38 IST",
+     "text": "D-039 \u2014 Path L v14 smoke: NO VERDICT (kernel ERROR before training)",
+     "src": "launch_work/D-039_V14_NO_VERDICT.md"
+    },
     {
      "t": "16:16 IST",
      "text": "COUNTERSIGN \u2014 Path L v14 smoke (Muse, independent, 25 Oct 2026 ~16:20 IST)",
@@ -139,11 +144,6 @@
      "t": "15:44 IST",
      "text": "D-038 DIAGNOSIS \u2014 v13 smoke faults: root causes, proposed v14 fixes, v14 assertions",
      "src": "launch_work/D-038_DIAGNOSIS.md"
-    },
-    {
-     "t": "14:49 IST",
-     "text": "D-038 \u2014 v13 smoke (P13.1) STOP: C1 blink rate fires for Ansh; the v11 face-destruction is fixed",
-     "src": "launch_work/D-038_V13_SMOKE_STOP.md"
     }
    ],
    "evidence": "launch_work/D-*.md, COUNTERSIGN_*.md (scan)"
@@ -429,12 +429,12 @@
    "name": "Postbox watch (Rio voice)",
    "sub": "Every 2 min \u2014 answers Anuj's spoken instructions",
    "state": "working",
-   "task": "Last run 16:28 IST, quiet (inbox empty) | Latest voice update 20261025-161548: No-go lifted for version fourteen build only, on a narrow waiver",
-   "last": "Last run 16:28 IST (memory log)",
+   "task": "Last run 16:34 IST, quiet (inbox empty) | Latest voice update 20261025-161548: No-go lifted for version fourteen build only, on a narrow waiver",
+   "last": "Last run 16:34 IST (memory log)",
    "window_min": 30,
    "events": [
     {
-     "t": "16:28 IST",
+     "t": "16:34 IST",
      "text": "Quiet run: inbox empty, no session, no update filed",
      "src": "~/memory/2026-10-25.md"
     },
@@ -552,7 +552,7 @@
    "sub": "Lead engine lane",
    "state": "working",
    "task": "v14 notebook, countersigned, pushed; no v14 run dir yet; newest judged run v11_out (Judged: eval_summary.json on disk)",
-   "last": "Latest movement 16:16 IST",
+   "last": "Latest movement 16:38 IST",
    "window_min": 90,
    "events": [
     {
@@ -561,9 +561,9 @@
      "src": "kernel_v9smoke/v11_out/"
     },
     {
-     "t": "16:16 IST",
-     "text": "COUNTERSIGN \u2014 Path L v14 smoke (Muse, independent, 25 Oct 2026 ~16:20 IST)",
-     "src": "launch_work/COUNTERSIGN_V14.md"
+     "t": "16:38 IST",
+     "text": "D-039 \u2014 Path L v14 smoke: NO VERDICT (kernel ERROR before training)",
+     "src": "launch_work/D-039_V14_NO_VERDICT.md"
     },
     {
      "t": "16:16 IST",
@@ -795,12 +795,12 @@
    "name": "Board refresh (this board)",
    "sub": "Every 5 min \u2014 regenerates board state",
    "state": "working",
-   "task": "Board state writer last ran 16:35 IST (cron or manual)",
-   "last": "Writer run 16:35 IST",
+   "task": "Board state writer last ran 16:40 IST (cron or manual)",
+   "last": "Writer run 16:40 IST",
    "window_min": 30,
    "events": [
     {
-     "t": "16:35 IST",
+     "t": "16:40 IST",
      "text": "State regenerated (discovery scan included)",
      "src": "hidden_files/live_ops_board/write_state.py"
     }
