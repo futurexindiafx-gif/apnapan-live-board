@@ -78,8 +78,8 @@
 
 <!-- STATE-START -->
 <script>var LIVE_OPS_STATE = {
- "generated_ist": "2026-10-25T13:10:12+05:30",
- "generated_label": "Current when opened: 13:10 IST",
+ "generated_ist": "2026-10-25T13:15:22+05:30",
+ "generated_label": "Current when opened: 13:15 IST",
  "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
  "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
  "flow": [
@@ -89,7 +89,7 @@
    "state": "done"
   },
   {
-   "from": "Latest decision: D-036 \u2014 v11 expr audit verdict + switch-route deci",
+   "from": "Latest decision: D-037 \u2014 Path L smoke v12: NO VERDICT (stage A died",
    "to": "countersign",
    "state": "done"
   },
@@ -116,10 +116,15 @@
    "name": "Muse \u2014 MD / CTO",
    "sub": "AI brain, top node",
    "state": "working",
-   "task": "Latest decision: D-036 \u2014 v11 expr audit verdict + switch-route decision \u00b7 Focus: engine + Rio + tomorrow's review",
-   "last": "Latest decision 13:01 IST",
+   "task": "Latest decision: D-037 \u2014 Path L smoke v12: NO VERDICT (stage A died at batch 0; the D-036 expr fix was never tested) \u00b7 Focus: engine + Rio + tomorrow's review",
+   "last": "Latest decision 13:14 IST",
    "window_min": 180,
    "events": [
+    {
+     "t": "13:10 IST",
+     "text": "D-037 \u2014 Path L smoke v12: NO VERDICT (stage A died at batch 0; the D-036 expr fix was never tested)",
+     "src": "launch_work/D-037_V12_SMOKE_NO_VERDICT.md"
+    },
     {
      "t": "12:40 IST",
      "text": "D-036 \u2014 v11 expr audit verdict + switch-route decision",
@@ -139,11 +144,6 @@
      "t": "12:36 IST",
      "text": "FIX_NOTE_V11 \u2014 v11 diagnosis \u2192 v12 fixes (D-035 STOP \u2192 D-036 FIX + RE-SMOKE)",
      "src": "launch_work/FIX_NOTE_V11.md"
-    },
-    {
-     "t": "12:03 IST",
-     "text": "V11 expr-branch audit \u2014 WHY the adapter corrupts faces and WHY the ablation is vacuous",
-     "src": "launch_work/V11_EXPR_AUDIT_20261025.md"
     }
    ],
    "evidence": "launch_work/D-*.md, COUNTERSIGN_*.md (scan)"
@@ -429,7 +429,7 @@
    "name": "Postbox watch (Rio voice)",
    "sub": "Every 2 min \u2014 answers Anuj's spoken instructions",
    "state": "working",
-   "task": "Last run 13:05 IST, quiet (inbox empty) | Latest voice update 20261025-124042: Version twelve checked, pushed, and running",
+   "task": "Last run 13:05 IST, quiet (inbox empty) | Latest voice update 20261025-131204: Version twelve gives no verdict on the expression fix",
    "last": "Last run 13:05 IST (memory log)",
    "window_min": 30,
    "events": [
@@ -490,8 +490,8 @@
    "name": "Engine watchdog",
    "sub": "Every 20 min \u2014 stall check, Muse only, never messages user",
    "state": "working",
-   "task": "Last run 20261025_1252 (all lanes moving, no stall)",
-   "last": "State file 12:52 IST",
+   "task": "Last run 20261025_1313 (all lanes moving, no stall)",
+   "last": "State file 13:14 IST",
    "window_min": 60,
    "events": [
     {
@@ -518,8 +518,8 @@
    "name": "Bridge sync (Hark loop)",
    "sub": "Every 10 min \u2014 repo audit; Hark parked since 22 Oct",
    "state": "working",
-   "task": "AUDIT 528 quiet cycle 13:01 IST",
-   "last": "State file 13:01 IST",
+   "task": "AUDIT 528 quiet cycle 13:11 IST",
+   "last": "State file 13:11 IST",
    "window_min": 60,
    "events": [
     {
@@ -552,7 +552,7 @@
    "sub": "Lead engine lane",
    "state": "working",
    "task": "v12 notebook, countersigned, pushed; no v12 run dir yet; newest judged run v11_out (Judged: eval_summary.json on disk)",
-   "last": "Latest movement 12:40 IST",
+   "last": "Latest movement 13:10 IST",
    "window_min": 90,
    "events": [
     {
@@ -561,9 +561,9 @@
      "src": "kernel_v9smoke/v11_out/"
     },
     {
-     "t": "12:40 IST",
-     "text": "D-036 \u2014 v11 expr audit verdict + switch-route decision",
-     "src": "launch_work/D-036_V11_AUDIT_SWITCH_ROUTE.md"
+     "t": "13:10 IST",
+     "text": "D-037 \u2014 Path L smoke v12: NO VERDICT (stage A died at batch 0; the D-036 expr fix was never tested)",
+     "src": "launch_work/D-037_V12_SMOKE_NO_VERDICT.md"
     },
     {
      "t": "12:40 IST",
@@ -767,8 +767,8 @@
    "name": "Bridge loop (Hark channel)",
    "sub": "Hark parked; loop audits only",
    "state": "parked",
-   "task": "Hark silent since 23 Oct 04:52 IST; loop audited 13:01 IST; term ends after 8 Nov",
-   "last": "STATUS.md 13:01 IST",
+   "task": "Hark silent since 23 Oct 04:52 IST; loop audited 13:11 IST; term ends after 8 Nov",
+   "last": "STATUS.md 13:11 IST",
    "window_min": 0,
    "events": [
     {
@@ -795,12 +795,12 @@
    "name": "Board refresh (this board)",
    "sub": "Every 5 min \u2014 regenerates board state",
    "state": "working",
-   "task": "Board state writer last ran 13:10 IST (cron or manual)",
-   "last": "Writer run 13:10 IST",
+   "task": "Board state writer last ran 13:15 IST (cron or manual)",
+   "last": "Writer run 13:15 IST",
    "window_min": 30,
    "events": [
     {
-     "t": "13:10 IST",
+     "t": "13:15 IST",
      "text": "State regenerated (discovery scan included)",
      "src": "hidden_files/live_ops_board/write_state.py"
     }
@@ -1022,6 +1022,24 @@
     }
    ],
    "evidence": "/home/hatch/workspace/goals/conversational-rio-voice-first-personal-assistant/crons/runonce/rio-v9-8am-readiness__runonce@2026-10-23T07:30:00.md"
+  },
+  {
+   "id": "disc-work-55e281",
+   "section": "resources",
+   "name": "Auto-discovered: work",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "working",
+   "task": "work \u2014 first seen 13:15, last movement 13:14",
+   "last": "Last movement 13:14 IST",
+   "window_min": 60,
+   "events": [
+    {
+     "t": "13:15",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/work"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/work"
   },
   {
    "id": "disc-v12-fetch-b7a07d",
