@@ -80,13 +80,13 @@
 
 <!-- STATE-START -->
 <script>var LIVE_OPS_STATE = {
- "generated_ist": "2026-10-26T08:25:11+05:30",
- "generated_label": "Current when opened: 08:25 IST",
+ "generated_ist": "2026-10-26T08:30:12+05:30",
+ "generated_label": "Current when opened: 08:30 IST",
  "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
  "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
  "flow": [
   {
-   "from": "v20 notebook (latest)",
+   "from": "v21 notebook (latest)",
    "to": "decision",
    "state": "done"
   },
@@ -98,7 +98,7 @@
   {
    "from": "Countersign",
    "to": "pushed",
-   "state": "done"
+   "state": "waiting"
   },
   {
    "from": "Pushed",
@@ -464,7 +464,7 @@
    "name": "Dashboard card",
    "sub": "Hourly 08:00\u201320:00 IST \u2014 graphical progress card",
    "state": "stuck",
-   "task": "STUCK? No movement for 143 min (window 120 min). Tap for history, then ask Muse about this node.",
+   "task": "STUCK? No movement for 148 min (window 120 min). Tap for history, then ask Muse about this node.",
    "last": "State file 06:01 IST",
    "window_min": 120,
    "events": [
@@ -553,8 +553,8 @@
    "name": "Path L engine",
    "sub": "Lead engine lane",
    "state": "working",
-   "task": "v20 notebook, countersign pending, pushed; no v20 run dir yet; newest judged run v11_out (Judged: eval_summary.json on disk)",
-   "last": "Latest movement 08:16 IST",
+   "task": "v21 notebook, countersign pending, not pushed; no v21 run dir yet; newest judged run v11_out (Judged: eval_summary.json on disk)",
+   "last": "Latest movement 08:29 IST",
    "window_min": 90,
    "events": [
     {
@@ -568,8 +568,8 @@
      "src": "launch_work/COUNTERSIGN_V21_PREP.md"
     },
     {
-     "t": "05:06 IST",
-     "text": "Latest notebook pathl_finetune_v20.ipynb (countersign pending, pushed)",
+     "t": "08:29 IST",
+     "text": "Latest notebook pathl_finetune_v21.ipynb (countersign pending, not pushed)",
      "src": "kernel_v9smoke/push/"
     }
    ],
@@ -792,12 +792,12 @@
    "name": "Board refresh (this board)",
    "sub": "Every 5 min \u2014 regenerates board state",
    "state": "working",
-   "task": "Board state writer last ran 08:25 IST (cron or manual)",
-   "last": "Writer run 08:25 IST",
+   "task": "Board state writer last ran 08:30 IST (cron or manual)",
+   "last": "Writer run 08:30 IST",
    "window_min": 30,
    "events": [
     {
-     "t": "08:25 IST",
+     "t": "08:30 IST",
      "text": "State regenerated (discovery scan included)",
      "src": "hidden_files/live_ops_board/write_state.py"
     }
@@ -807,20 +807,20 @@
   {
    "id": "ver-latest",
    "section": "resources",
-   "name": "Kernel v20 notebook (latest)",
+   "name": "Kernel v21 notebook (latest)",
    "sub": "Auto-discovered \u2014 newest notebook on file",
    "state": "waiting",
-   "task": "Notebook pathl_finetune_v20.ipynb; countersign: countersign pending; pushed: pushed",
-   "last": "Notebook 05:06 IST",
+   "task": "Notebook pathl_finetune_v21.ipynb; countersign: countersign pending; pushed: not pushed",
+   "last": "Notebook 08:29 IST",
    "window_min": 0,
    "events": [
     {
-     "t": "05:06 IST",
-     "text": "Notebook pathl_finetune_v20.ipynb (countersign pending, pushed)",
-     "src": "kernel_v9smoke/push/pathl_finetune_v20.ipynb"
+     "t": "08:29 IST",
+     "text": "Notebook pathl_finetune_v21.ipynb (countersign pending, not pushed)",
+     "src": "kernel_v9smoke/push/pathl_finetune_v21.ipynb"
     }
    ],
-   "evidence": "kernel_v9smoke/push/pathl_finetune_v20.ipynb"
+   "evidence": "kernel_v9smoke/push/pathl_finetune_v21.ipynb"
   },
   {
    "id": "run-kernel_v9smoke-v11_out",
@@ -1021,6 +1021,24 @@
    "evidence": "/home/hatch/workspace/goals/conversational-rio-voice-first-personal-assistant/crons/runonce/rio-v9-8am-readiness__runonce@2026-10-23T07:30:00.md"
   },
   {
+   "id": "disc-push-2e1441",
+   "section": "resources",
+   "name": "Auto-discovered: push",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "working",
+   "task": "work \u2014 first seen 13:30, last movement 08:29",
+   "last": "Last movement 08:29 IST",
+   "window_min": 60,
+   "events": [
+    {
+     "t": "13:30",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/push"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/push"
+  },
+  {
    "id": "disc-work-55e281",
    "section": "resources",
    "name": "Auto-discovered: work",
@@ -1073,24 +1091,6 @@
     }
    ],
    "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/v20_fetch"
-  },
-  {
-   "id": "disc-push-2e1441",
-   "section": "resources",
-   "name": "Auto-discovered: push",
-   "sub": "Auto-discovered \u2014 work",
-   "state": "waiting",
-   "task": "work \u2014 first seen 13:30, last movement 05:02",
-   "last": "Last movement 05:02 IST",
-   "window_min": 60,
-   "events": [
-    {
-     "t": "13:30",
-     "text": "First seen by board scan",
-     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/push"
-    }
-   ],
-   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/push"
   },
   {
    "id": "disc-V20-PREP-O3-REPEAT-CONTROL-DESIGN-md-0ecdbf",
