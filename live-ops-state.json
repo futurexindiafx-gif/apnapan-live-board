@@ -1,6 +1,6 @@
 {
- "generated_ist": "2026-10-26T16:50:15+05:30",
- "generated_label": "Current when opened: 16:50 IST",
+ "generated_ist": "2026-10-26T16:55:16+05:30",
+ "generated_label": "Current when opened: 16:55 IST",
  "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
  "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
  "flow": [
@@ -38,7 +38,7 @@
    "sub": "AI brain, top node",
    "state": "working",
    "task": "Latest decision: SEED AUDIT \u2014 ranked suspects for the v22 step-2 hash divergence \u00b7 Focus: engine + Rio + tomorrow's review",
-   "last": "Latest decision 16:45 IST",
+   "last": "Latest decision 16:54 IST",
    "window_min": 180,
    "events": [
     {
@@ -411,8 +411,8 @@
    "name": "Engine watchdog",
    "sub": "Every 20 min \u2014 stall check, Muse only, never messages user",
    "state": "working",
-   "task": "Last run 20261026_1552 (all lanes moving, no stall)",
-   "last": "State file 16:33 IST",
+   "task": "Last run 20261026_1652 (all lanes moving, no stall)",
+   "last": "State file 16:54 IST",
    "window_min": 60,
    "events": [
     {
@@ -439,8 +439,8 @@
    "name": "Bridge sync (Hark loop)",
    "sub": "Every 10 min \u2014 repo audit; Hark parked since 22 Oct",
    "state": "working",
-   "task": "AUDIT 528 quiet cycle 16:41 IST",
-   "last": "State file 16:41 IST",
+   "task": "AUDIT 528 quiet cycle 16:52 IST",
+   "last": "State file 16:52 IST",
    "window_min": 60,
    "events": [
     {
@@ -683,8 +683,8 @@
    "name": "Bridge loop (Hark channel)",
    "sub": "Hark parked; loop audits only",
    "state": "parked",
-   "task": "Hark silent since 23 Oct 04:52 IST; loop audited 16:41 IST; term ends after 8 Nov",
-   "last": "STATUS.md 16:41 IST",
+   "task": "Hark silent since 23 Oct 04:52 IST; loop audited 16:52 IST; term ends after 8 Nov",
+   "last": "STATUS.md 16:52 IST",
    "window_min": 0,
    "events": [
     {
@@ -711,12 +711,12 @@
    "name": "Board refresh (this board)",
    "sub": "Every 5 min \u2014 regenerates board state",
    "state": "working",
-   "task": "Board state writer last ran 16:50 IST (cron or manual)",
-   "last": "Writer run 16:50 IST",
+   "task": "Board state writer last ran 16:55 IST (cron or manual)",
+   "last": "Writer run 16:55 IST",
    "window_min": 30,
    "events": [
     {
-     "t": "16:50 IST",
+     "t": "16:55 IST",
      "text": "State regenerated (discovery scan included)",
      "src": "hidden_files/live_ops_board/write_state.py"
     }
@@ -958,6 +958,42 @@
    "evidence": "/home/hatch/workspace/goals/conversational-rio-voice-first-personal-assistant/crons/runonce/rio-v9-8am-readiness__runonce@2026-10-23T07:30:00.md"
   },
   {
+   "id": "disc-MAIN-RUN-DESIGN-SEEDED-BASELINE-20261026-ce1748",
+   "section": "resources",
+   "name": "Auto-discovered: MAIN_RUN_DESIGN_SEEDED_BASELINE_20261026.md",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "done",
+   "task": "work \u2014 first seen 16:55, last movement 16:54",
+   "last": "Last movement 16:54 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "16:55",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/MAIN_RUN_DESIGN_SEEDED_BASELINE_20261026.md"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/MAIN_RUN_DESIGN_SEEDED_BASELINE_20261026.md"
+  },
+  {
+   "id": "disc-flags-arm-pair-20e22b",
+   "section": "resources",
+   "name": "Auto-discovered: flags_arm_pair",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "working",
+   "task": "work \u2014 first seen 15:35, last movement 16:50",
+   "last": "Last movement 16:50 IST",
+   "window_min": 60,
+   "events": [
+    {
+     "t": "15:35",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/flags_arm_pair"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/flags_arm_pair"
+  },
+  {
    "id": "disc-flags-arm-pair-fetch-fef81c",
    "section": "resources",
    "name": "Auto-discovered: flags_arm_pair_fetch",
@@ -1046,24 +1082,6 @@
     }
    ],
    "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/live_check_20261027_prep.md"
-  },
-  {
-   "id": "disc-flags-arm-pair-20e22b",
-   "section": "resources",
-   "name": "Auto-discovered: flags_arm_pair",
-   "sub": "Auto-discovered \u2014 work",
-   "state": "waiting",
-   "task": "work \u2014 first seen 15:35, last movement 15:35",
-   "last": "Last movement 15:35 IST",
-   "window_min": 60,
-   "events": [
-    {
-     "t": "15:35",
-     "text": "First seen by board scan",
-     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/flags_arm_pair"
-    }
-   ],
-   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/flags_arm_pair"
   },
   {
    "id": "disc-push-pair-d52511",
