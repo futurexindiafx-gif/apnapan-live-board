@@ -80,8 +80,8 @@
 
 <!-- STATE-START -->
 <script>var LIVE_OPS_STATE = {
- "generated_ist": "2026-10-26T20:15:12+05:30",
- "generated_label": "Current when opened: 20:15 IST",
+ "generated_ist": "2026-10-26T20:20:14+05:30",
+ "generated_label": "Current when opened: 20:20 IST",
  "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
  "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
  "flow": [
@@ -91,7 +91,7 @@
    "state": "done"
   },
   {
-   "from": "Latest decision: D-047 \u2014 MAIN SMOKE v29: STOP (objective stop, not ",
+   "from": "Latest decision: Rule-11 cold-review countersign \u2014 D-047 (main smok",
    "to": "countersign",
    "state": "waiting"
   },
@@ -118,10 +118,15 @@
    "name": "Muse \u2014 MD / CTO",
    "sub": "AI brain, top node",
    "state": "working",
-   "task": "Latest decision: D-047 \u2014 MAIN SMOKE v29: STOP (objective stop, not pipeline stop) \u00b7 Focus: engine + Rio + tomorrow's review",
-   "last": "Latest decision 20:13 IST",
+   "task": "Latest decision: Rule-11 cold-review countersign \u2014 D-047 (main smoke v29 STOP) \u00b7 Focus: engine + Rio + tomorrow's review",
+   "last": "Latest decision 20:18 IST",
    "window_min": 180,
    "events": [
+    {
+     "t": "20:18 IST",
+     "text": "Rule-11 cold-review countersign \u2014 D-047 (main smoke v29 STOP)",
+     "src": "launch_work/COUNTERSIGN_RULE11_D047.md"
+    },
     {
      "t": "19:13 IST",
      "text": "D-047 \u2014 MAIN SMOKE v29: STOP (objective stop, not pipeline stop)",
@@ -141,11 +146,6 @@
      "t": "13:52 IST",
      "text": "ChatGPT seed-audit protocol (26 Oct 2026, sanitized consultation)",
      "src": "launch_work/CHATGPT_SEED_AUDIT_PROTOCOL_20261026.md"
-    },
-    {
-     "t": "13:41 IST",
-     "text": "COUNTERSIGN \u2014 stability_budget_v22.json (Muse, 26 Oct 2026 ~13:41 IST)",
-     "src": "launch_work/COUNTERSIGN_V22_BUDGET.md"
     }
    ],
    "evidence": "launch_work/D-*.md, COUNTERSIGN_*.md (scan)"
@@ -554,7 +554,7 @@
    "sub": "Lead engine lane",
    "state": "working",
    "task": "v22 notebook, countersign pending, not pushed; no v22 run dir yet; newest judged run v11_out (Judged: eval_summary.json on disk)",
-   "last": "Latest movement 19:13 IST",
+   "last": "Latest movement 20:18 IST",
    "window_min": 90,
    "events": [
     {
@@ -563,9 +563,9 @@
      "src": "kernel_v9smoke/v11_out/"
     },
     {
-     "t": "19:13 IST",
-     "text": "D-047 \u2014 MAIN SMOKE v29: STOP (objective stop, not pipeline stop)",
-     "src": "launch_work/D-047_V29_MAIN_SMOKE_STOP.md"
+     "t": "20:18 IST",
+     "text": "Rule-11 cold-review countersign \u2014 D-047 (main smoke v29 STOP)",
+     "src": "launch_work/COUNTERSIGN_RULE11_D047.md"
     },
     {
      "t": "11:20 IST",
@@ -792,12 +792,12 @@
    "name": "Board refresh (this board)",
    "sub": "Every 5 min \u2014 regenerates board state",
    "state": "working",
-   "task": "Board state writer last ran 20:15 IST (cron or manual)",
-   "last": "Writer run 20:15 IST",
+   "task": "Board state writer last ran 20:20 IST (cron or manual)",
+   "last": "Writer run 20:20 IST",
    "window_min": 30,
    "events": [
     {
-     "t": "20:15 IST",
+     "t": "20:20 IST",
      "text": "State regenerated (discovery scan included)",
      "src": "hidden_files/live_ops_board/write_state.py"
     }
@@ -1007,14 +1007,14 @@
    "section": "resources",
    "name": "Cron: community-intel-scan",
    "sub": "Auto-discovered \u2014 scheduled job",
-   "state": "waiting",
-   "task": "Scheduled (?); last run not tracked on this board",
-   "last": "Job file 14:13 IST",
+   "state": "parked",
+   "task": "Scheduled (?); DISABLED in file",
+   "last": "Job file 20:16 IST",
    "window_min": 0,
    "events": [
     {
-     "t": "14:13 IST",
-     "text": "Job file community-intel-scan (enabled)",
+     "t": "20:16 IST",
+     "text": "Job file community-intel-scan (disabled)",
      "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/crons/daily/community-intel-scan__daily@09:43:00_user_current.md"
     }
    ],
@@ -1039,6 +1039,42 @@
    "evidence": "/home/hatch/workspace/goals/conversational-rio-voice-first-personal-assistant/crons/runonce/rio-v9-8am-readiness__runonce@2026-10-23T07:30:00.md"
   },
   {
+   "id": "disc-DIAGNOSIS-NEXT-DESIGN-20261026-md-0f3648",
+   "section": "resources",
+   "name": "Auto-discovered: DIAGNOSIS_NEXT_DESIGN_20261026.md",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "done",
+   "task": "work \u2014 first seen 20:20, last movement 20:19",
+   "last": "Last movement 20:19 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "20:20",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/DIAGNOSIS_NEXT_DESIGN_20261026.md"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/DIAGNOSIS_NEXT_DESIGN_20261026.md"
+  },
+  {
+   "id": "disc-main-smoke-4bf809",
+   "section": "resources",
+   "name": "Auto-discovered: main_smoke",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "working",
+   "task": "work \u2014 first seen 17:25, last movement 20:18",
+   "last": "Last movement 20:18 IST",
+   "window_min": 60,
+   "events": [
+    {
+     "t": "17:25",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/main_smoke"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/main_smoke"
+  },
+  {
    "id": "disc-live-check-20261027-prep-md-fc0453",
    "section": "resources",
    "name": "Auto-discovered: live_check_20261027_prep.md",
@@ -1055,24 +1091,6 @@
     }
    ],
    "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/live_check_20261027_prep.md"
-  },
-  {
-   "id": "disc-main-smoke-4bf809",
-   "section": "resources",
-   "name": "Auto-discovered: main_smoke",
-   "sub": "Auto-discovered \u2014 work",
-   "state": "waiting",
-   "task": "work \u2014 first seen 17:25, last movement 19:05",
-   "last": "Last movement 19:05 IST",
-   "window_min": 60,
-   "events": [
-    {
-     "t": "17:25",
-     "text": "First seen by board scan",
-     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/main_smoke"
-    }
-   ],
-   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/kernel_v9smoke/main_smoke"
   },
   {
    "id": "disc-BRAIN-VOICE-PROPOSAL-20261026-md-eccb62",
