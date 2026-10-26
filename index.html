@@ -80,8 +80,8 @@
 
 <!-- STATE-START -->
 <script>var LIVE_OPS_STATE = {
- "generated_ist": "2026-10-26T07:15:11+05:30",
- "generated_label": "Current when opened: 07:15 IST",
+ "generated_ist": "2026-10-26T07:20:12+05:30",
+ "generated_label": "Current when opened: 07:20 IST",
  "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
  "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
  "flow": [
@@ -91,7 +91,7 @@
    "state": "done"
   },
   {
-   "from": "Latest decision: COUNTERSIGN \u2014 Path L smoke v20 build (Muse, indepe",
+   "from": "Latest decision: COUNTERSIGN \u2014 Path L smoke v20 script verdict (Mus",
    "to": "countersign",
    "state": "waiting"
   },
@@ -118,10 +118,15 @@
    "name": "Muse \u2014 MD / CTO",
    "sub": "AI brain, top node",
    "state": "working",
-   "task": "Latest decision: COUNTERSIGN \u2014 Path L smoke v20 build (Muse, independent verification) \u00b7 Focus: engine + Rio + tomorrow's review",
-   "last": "Latest decision 07:13 IST",
+   "task": "Latest decision: COUNTERSIGN \u2014 Path L smoke v20 script verdict (Muse, independent verification) \u00b7 Focus: engine + Rio + tomorrow's review",
+   "last": "Latest decision 07:18 IST",
    "window_min": 180,
    "events": [
+    {
+     "t": "07:16 IST",
+     "text": "COUNTERSIGN \u2014 Path L smoke v20 script verdict (Muse, independent verification)",
+     "src": "launch_work/COUNTERSIGN_V20_SCRIPT_VERDICT.md"
+    },
     {
      "t": "05:08 IST",
      "text": "COUNTERSIGN \u2014 Path L smoke v20 build (Muse, independent verification)",
@@ -141,11 +146,6 @@
      "t": "04:58 IST",
      "text": "D-045 \u2014 Path L smoke v19 STOP diagnosis \u2014 DRAFT for parent countersign",
      "src": "launch_work/D-045_V19_STOP_DIAGNOSIS_DRAFT.md"
-    },
-    {
-     "t": "04:38 IST",
-     "text": "COUNTERSIGN \u2014 Path L smoke v19 script verdict (Muse, independent verification)",
-     "src": "launch_work/COUNTERSIGN_V19_SCRIPT_VERDICT.md"
     }
    ],
    "evidence": "launch_work/D-*.md, COUNTERSIGN_*.md (scan)"
@@ -431,7 +431,7 @@
    "name": "Postbox watch (Rio voice)",
    "sub": "Every 2 min \u2014 answers Anuj's spoken instructions",
    "state": "working",
-   "task": "Last run 23:58 IST, quiet (inbox empty) | Latest voice update 20261026-051240: Version twenty built and running: clean repeat test on the version eighteen recipe",
+   "task": "Last run 23:58 IST, quiet (inbox empty) | Latest voice update 20261026-071822: Version twenty judged: stop \u2014 repeat did not reproduce, baseline itself unstable; cheek hinge supported",
    "last": "Last run 23:58 IST (memory log)",
    "window_min": 30,
    "events": [
@@ -552,9 +552,9 @@
    "section": "lanes",
    "name": "Path L engine",
    "sub": "Lead engine lane",
-   "state": "stuck",
-   "task": "STUCK? No movement for 126 min (window 90 min). Tap for history, then ask Muse about this node.",
-   "last": "Latest movement 05:08 IST",
+   "state": "working",
+   "task": "v20 notebook, countersign pending, pushed; no v20 run dir yet; newest judged run v11_out (Judged: eval_summary.json on disk)",
+   "last": "Latest movement 07:16 IST",
    "window_min": 90,
    "events": [
     {
@@ -563,9 +563,9 @@
      "src": "kernel_v9smoke/v11_out/"
     },
     {
-     "t": "05:08 IST",
-     "text": "COUNTERSIGN \u2014 Path L smoke v20 build (Muse, independent verification)",
-     "src": "launch_work/COUNTERSIGN_V20_BUILD.md"
+     "t": "07:16 IST",
+     "text": "COUNTERSIGN \u2014 Path L smoke v20 script verdict (Muse, independent verification)",
+     "src": "launch_work/COUNTERSIGN_V20_SCRIPT_VERDICT.md"
     },
     {
      "t": "05:06 IST",
@@ -792,12 +792,12 @@
    "name": "Board refresh (this board)",
    "sub": "Every 5 min \u2014 regenerates board state",
    "state": "working",
-   "task": "Board state writer last ran 07:15 IST (cron or manual)",
-   "last": "Writer run 07:15 IST",
+   "task": "Board state writer last ran 07:20 IST (cron or manual)",
+   "last": "Writer run 07:20 IST",
    "window_min": 30,
    "events": [
     {
-     "t": "07:15 IST",
+     "t": "07:20 IST",
      "text": "State regenerated (discovery scan included)",
      "src": "hidden_files/live_ops_board/write_state.py"
     }
