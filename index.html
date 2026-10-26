@@ -80,8 +80,8 @@
 
 <!-- STATE-START -->
 <script>var LIVE_OPS_STATE = {
- "generated_ist": "2026-10-26T19:10:16+05:30",
- "generated_label": "Current when opened: 19:10 IST",
+ "generated_ist": "2026-10-26T19:15:11+05:30",
+ "generated_label": "Current when opened: 19:15 IST",
  "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
  "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
  "flow": [
@@ -91,7 +91,7 @@
    "state": "done"
   },
   {
-   "from": "Latest decision: SEED AUDIT \u2014 ranked suspects for the v22 step-2 ha",
+   "from": "Latest decision: D-047 \u2014 MAIN SMOKE v29: STOP (objective stop, not ",
    "to": "countersign",
    "state": "waiting"
   },
@@ -118,10 +118,15 @@
    "name": "Muse \u2014 MD / CTO",
    "sub": "AI brain, top node",
    "state": "working",
-   "task": "Latest decision: SEED AUDIT \u2014 ranked suspects for the v22 step-2 hash divergence \u00b7 Focus: engine + Rio + tomorrow's review",
-   "last": "Latest decision 19:03 IST",
+   "task": "Latest decision: D-047 \u2014 MAIN SMOKE v29: STOP (objective stop, not pipeline stop) \u00b7 Focus: engine + Rio + tomorrow's review",
+   "last": "Latest decision 19:14 IST",
    "window_min": 180,
    "events": [
+    {
+     "t": "19:13 IST",
+     "text": "D-047 \u2014 MAIN SMOKE v29: STOP (objective stop, not pipeline stop)",
+     "src": "launch_work/D-047_V29_MAIN_SMOKE_STOP.md"
+    },
     {
      "t": "16:42 IST",
      "text": "SEED AUDIT \u2014 ranked suspects for the v22 step-2 hash divergence",
@@ -141,11 +146,6 @@
      "t": "13:41 IST",
      "text": "COUNTERSIGN \u2014 stability_budget_v22.json (Muse, 26 Oct 2026 ~13:41 IST)",
      "src": "launch_work/COUNTERSIGN_V22_BUDGET.md"
-    },
-    {
-     "t": "12:01 IST",
-     "text": "COUNTERSIGN \u2014 v22 fix build (Muse, independent verification)",
-     "src": "launch_work/COUNTERSIGN_V22_FIX.md"
     }
    ],
    "evidence": "launch_work/D-*.md, COUNTERSIGN_*.md (scan)"
@@ -431,7 +431,7 @@
    "name": "Postbox watch (Rio voice)",
    "sub": "Every 2 min \u2014 answers Anuj's spoken instructions",
    "state": "working",
-   "task": "Last run 23:58 IST, quiet (inbox empty) | Latest voice update 20261026-185210: Tonight's bake-off build complete; scout weight hashes done; two launch items stay open",
+   "task": "Last run 23:58 IST, quiet (inbox empty) | Latest voice update 20261026-191432: Face test verdict is stop; no probe on this recipe, five hundred rupees unspent",
    "last": "Last run 23:58 IST (memory log)",
    "window_min": 30,
    "events": [
@@ -492,8 +492,8 @@
    "name": "Engine watchdog",
    "sub": "Every 20 min \u2014 stall check, Muse only, never messages user",
    "state": "working",
-   "task": "Last run 20261026_1852 (all lanes moving, no stall)",
-   "last": "State file 18:53 IST",
+   "task": "Last run 20261026_1912 (all lanes moving, no stall)",
+   "last": "State file 19:13 IST",
    "window_min": 60,
    "events": [
     {
@@ -520,8 +520,8 @@
    "name": "Bridge sync (Hark loop)",
    "sub": "Every 10 min \u2014 repo audit; Hark parked since 22 Oct",
    "state": "working",
-   "task": "AUDIT 528 quiet cycle 19:03 IST",
-   "last": "State file 19:03 IST",
+   "task": "AUDIT 528 quiet cycle 19:14 IST",
+   "last": "State file 19:14 IST",
    "window_min": 60,
    "events": [
     {
@@ -552,9 +552,9 @@
    "section": "lanes",
    "name": "Path L engine",
    "sub": "Lead engine lane",
-   "state": "stuck",
-   "task": "STUCK? No movement for 147 min (window 90 min). Tap for history, then ask Muse about this node.",
-   "last": "Latest movement 16:42 IST",
+   "state": "working",
+   "task": "v22 notebook, countersign pending, not pushed; no v22 run dir yet; newest judged run v11_out (Judged: eval_summary.json on disk)",
+   "last": "Latest movement 19:13 IST",
    "window_min": 90,
    "events": [
     {
@@ -563,9 +563,9 @@
      "src": "kernel_v9smoke/v11_out/"
     },
     {
-     "t": "16:42 IST",
-     "text": "SEED AUDIT \u2014 ranked suspects for the v22 step-2 hash divergence",
-     "src": "launch_work/SEED_AUDIT_SUSPECTS_20261026.md"
+     "t": "19:13 IST",
+     "text": "D-047 \u2014 MAIN SMOKE v29: STOP (objective stop, not pipeline stop)",
+     "src": "launch_work/D-047_V29_MAIN_SMOKE_STOP.md"
     },
     {
      "t": "11:20 IST",
@@ -764,8 +764,8 @@
    "name": "Bridge loop (Hark channel)",
    "sub": "Hark parked; loop audits only",
    "state": "parked",
-   "task": "Hark silent since 23 Oct 04:52 IST; loop audited 19:03 IST; term ends after 8 Nov",
-   "last": "STATUS.md 19:03 IST",
+   "task": "Hark silent since 23 Oct 04:52 IST; loop audited 19:14 IST; term ends after 8 Nov",
+   "last": "STATUS.md 19:14 IST",
    "window_min": 0,
    "events": [
     {
@@ -792,12 +792,12 @@
    "name": "Board refresh (this board)",
    "sub": "Every 5 min \u2014 regenerates board state",
    "state": "working",
-   "task": "Board state writer last ran 19:10 IST (cron or manual)",
-   "last": "Writer run 19:10 IST",
+   "task": "Board state writer last ran 19:15 IST (cron or manual)",
+   "last": "Writer run 19:15 IST",
    "window_min": 30,
    "events": [
     {
-     "t": "19:10 IST",
+     "t": "19:15 IST",
      "text": "State regenerated (discovery scan included)",
      "src": "hidden_files/live_ops_board/write_state.py"
     }
