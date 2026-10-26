@@ -1,6 +1,6 @@
 {
- "generated_ist": "2026-10-26T14:55:10+05:30",
- "generated_label": "Current when opened: 14:55 IST",
+ "generated_ist": "2026-10-26T15:00:19+05:30",
+ "generated_label": "Current when opened: 15:00 IST",
  "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
  "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
  "flow": [
@@ -562,7 +562,7 @@
    "sub": "Real-human footage only; zero synthetic, zero Anam",
    "state": "waiting",
    "task": "b5 done: 35 clips / 257.8 s (hi 21, mr 14); owed: male speakers 0/35",
-   "last": "Manifest 14:54 IST",
+   "last": "Manifest 14:59 IST",
    "window_min": 0,
    "events": [
     {
@@ -711,12 +711,12 @@
    "name": "Board refresh (this board)",
    "sub": "Every 5 min \u2014 regenerates board state",
    "state": "working",
-   "task": "Board state writer last ran 14:55 IST (cron or manual)",
-   "last": "Writer run 14:55 IST",
+   "task": "Board state writer last ran 15:00 IST (cron or manual)",
+   "last": "Writer run 15:00 IST",
    "window_min": 30,
    "events": [
     {
-     "t": "14:55 IST",
+     "t": "15:00 IST",
      "text": "State regenerated (discovery scan included)",
      "src": "hidden_files/live_ops_board/write_state.py"
     }
