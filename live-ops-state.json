@@ -1,6 +1,6 @@
 {
- "generated_ist": "2026-10-27T11:55:12+05:30",
- "generated_label": "Current when opened: 11:55 IST",
+ "generated_ist": "2026-10-27T12:00:13+05:30",
+ "generated_label": "Current when opened: 12:00 IST",
  "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
  "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
  "flow": [
@@ -38,7 +38,7 @@
    "sub": "AI brain, top node",
    "state": "working",
    "task": "Latest decision: COUNTERSIGN \u2014 D2 DOWNSTREAM GATE-SWEEP DIAGNOSTIC (design only) \u00b7 Focus: engine + Rio + tomorrow's review",
-   "last": "Latest decision 11:52 IST",
+   "last": "Latest decision 11:58 IST",
    "window_min": 180,
    "events": [
     {
@@ -350,7 +350,7 @@
    "name": "Postbox watch (Rio voice)",
    "sub": "Every 2 min \u2014 answers Anuj's spoken instructions",
    "state": "working",
-   "task": "Last run 23:58 IST, quiet (inbox empty) | Latest voice update 20261027-112535: All five brain replies in, one stand set, three branch jobs out",
+   "task": "Last run 23:58 IST, quiet (inbox empty) | Latest voice update 20261027-115823: Round two complete, controller correction, D two flat probe landed",
    "last": "Last run 23:58 IST (memory log)",
    "window_min": 30,
    "events": [
@@ -383,7 +383,7 @@
    "name": "Dashboard card",
    "sub": "Hourly 08:00\u201320:00 IST \u2014 graphical progress card",
    "state": "stuck",
-   "task": "STUCK? No movement for 966 min (window 120 min). Tap for history, then ask Muse about this node.",
+   "task": "STUCK? No movement for 971 min (window 120 min). Tap for history, then ask Muse about this node.",
    "last": "State file 19:48 IST",
    "window_min": 120,
    "events": [
@@ -472,7 +472,7 @@
    "name": "Path L engine",
    "sub": "Lead engine lane",
    "state": "stuck",
-   "task": "STUCK? No movement for 139 min (window 90 min). Tap for history, then ask Muse about this node.",
+   "task": "STUCK? No movement for 144 min (window 90 min). Tap for history, then ask Muse about this node.",
    "last": "Latest movement 09:35 IST",
    "window_min": 90,
    "events": [
@@ -711,12 +711,12 @@
    "name": "Board refresh (this board)",
    "sub": "Every 5 min \u2014 regenerates board state",
    "state": "working",
-   "task": "Board state writer last ran 11:55 IST (cron or manual)",
-   "last": "Writer run 11:55 IST",
+   "task": "Board state writer last ran 12:00 IST (cron or manual)",
+   "last": "Writer run 12:00 IST",
    "window_min": 30,
    "events": [
     {
-     "t": "11:55 IST",
+     "t": "12:00 IST",
      "text": "State regenerated (discovery scan included)",
      "src": "hidden_files/live_ops_board/write_state.py"
     }
@@ -956,6 +956,42 @@
     }
    ],
    "evidence": "/home/hatch/workspace/goals/conversational-rio-voice-first-personal-assistant/crons/runonce/rio-v9-8am-readiness__runonce@2026-10-23T07:30:00.md"
+  },
+  {
+   "id": "disc-JUDGE-BLINDNESS-CHECK-DESIGN-20261027-md-7d7f05",
+   "section": "resources",
+   "name": "Auto-discovered: JUDGE_BLINDNESS_CHECK_DESIGN_20261027.md",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "done",
+   "task": "work \u2014 first seen 12:00, last movement 11:59",
+   "last": "Last movement 11:59 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "12:00",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/JUDGE_BLINDNESS_CHECK_DESIGN_20261027.md"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/JUDGE_BLINDNESS_CHECK_DESIGN_20261027.md"
+  },
+  {
+   "id": "disc-REVIEW-ADAPTATION-20261027-DRAFT-md-fa44b3",
+   "section": "resources",
+   "name": "Auto-discovered: REVIEW_ADAPTATION_20261027_DRAFT.md",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "done",
+   "task": "work \u2014 first seen 12:00, last movement 11:57",
+   "last": "Last movement 11:57 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "12:00",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/REVIEW_ADAPTATION_20261027_DRAFT.md"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/REVIEW_ADAPTATION_20261027_DRAFT.md"
   },
   {
    "id": "disc-WORKER-OUTPUT-6-GEMINI-APP-SHELL-2026102-0ba8e6",
