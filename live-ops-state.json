@@ -1,6 +1,6 @@
 {
- "generated_ist": "2026-10-30T01:30:20+05:30",
- "generated_label": "Current when opened: 01:30 IST",
+ "generated_ist": "2026-10-30T01:35:16+05:30",
+ "generated_label": "Current when opened: 01:35 IST",
  "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
  "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
  "flow": [
@@ -38,7 +38,7 @@
    "sub": "AI brain, top node",
    "state": "working",
    "task": "Latest decision: COUNTERSIGN \u2014 D2 DOWNSTREAM GATE-SWEEP DIAGNOSTIC (design only) \u00b7 Focus: engine + Rio + tomorrow's review",
-   "last": "Latest decision 01:22 IST",
+   "last": "Latest decision 01:34 IST",
    "window_min": 180,
    "events": [
     {
@@ -383,7 +383,7 @@
    "name": "Dashboard card",
    "sub": "Hourly 08:00\u201320:00 IST \u2014 graphical progress card",
    "state": "stuck",
-   "task": "STUCK? No movement for 4661 min (window 120 min). Tap for history, then ask Muse about this node.",
+   "task": "STUCK? No movement for 4666 min (window 120 min). Tap for history, then ask Muse about this node.",
    "last": "State file 19:48 IST",
    "window_min": 120,
    "events": [
@@ -411,8 +411,8 @@
    "name": "Engine watchdog",
    "sub": "Every 20 min \u2014 stall check, Muse only, never messages user",
    "state": "working",
-   "task": "Last run 20261030_0112 (all lanes moving, no stall)",
-   "last": "State file 01:14 IST",
+   "task": "Last run 20261030_0132 (all lanes moving, no stall)",
+   "last": "State file 01:34 IST",
    "window_min": 60,
    "events": [
     {
@@ -439,8 +439,8 @@
    "name": "Bridge sync (Hark loop)",
    "sub": "Every 10 min \u2014 repo audit; Hark parked since 22 Oct",
    "state": "working",
-   "task": "AUDIT 528 quiet cycle 01:22 IST",
-   "last": "State file 01:22 IST",
+   "task": "AUDIT 528 quiet cycle 01:32 IST",
+   "last": "State file 01:32 IST",
    "window_min": 60,
    "events": [
     {
@@ -472,7 +472,7 @@
    "name": "Path L engine",
    "sub": "Lead engine lane",
    "state": "stuck",
-   "task": "STUCK? No movement for 3835 min (window 90 min). Tap for history, then ask Muse about this node.",
+   "task": "STUCK? No movement for 3839 min (window 90 min). Tap for history, then ask Muse about this node.",
    "last": "Latest movement 09:35 IST",
    "window_min": 90,
    "events": [
@@ -683,8 +683,8 @@
    "name": "Bridge loop (Hark channel)",
    "sub": "Hark parked; loop audits only",
    "state": "parked",
-   "task": "Hark silent since 23 Oct 04:52 IST; loop audited 01:22 IST; term ends after 8 Nov",
-   "last": "STATUS.md 01:22 IST",
+   "task": "Hark silent since 23 Oct 04:52 IST; loop audited 01:32 IST; term ends after 8 Nov",
+   "last": "STATUS.md 01:32 IST",
    "window_min": 0,
    "events": [
     {
@@ -711,12 +711,12 @@
    "name": "Board refresh (this board)",
    "sub": "Every 5 min \u2014 regenerates board state",
    "state": "working",
-   "task": "Board state writer last ran 01:30 IST (cron or manual)",
-   "last": "Writer run 01:30 IST",
+   "task": "Board state writer last ran 01:35 IST (cron or manual)",
+   "last": "Writer run 01:35 IST",
    "window_min": 30,
    "events": [
     {
-     "t": "01:30 IST",
+     "t": "01:35 IST",
      "text": "State regenerated (discovery scan included)",
      "src": "hidden_files/live_ops_board/write_state.py"
     }
@@ -1030,31 +1030,13 @@
    "evidence": "/home/hatch/workspace/goals/conversational-rio-voice-first-personal-assistant/crons/runonce/rio-v9-8am-readiness__runonce@2026-10-23T07:30:00.md"
   },
   {
-   "id": "disc-MD-CTO-RECHECK-STATE-md-de6f29",
-   "section": "resources",
-   "name": "Auto-discovered: MD_CTO_RECHECK_STATE.md",
-   "sub": "Auto-discovered \u2014 work",
-   "state": "done",
-   "task": "work \u2014 first seen 09:00, last movement 01:25",
-   "last": "Last movement 01:25 IST",
-   "window_min": 0,
-   "events": [
-    {
-     "t": "09:00",
-     "text": "First seen by board scan",
-     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/MD_CTO_RECHECK_STATE.md"
-    }
-   ],
-   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/MD_CTO_RECHECK_STATE.md"
-  },
-  {
    "id": "disc-LIVE-STATE-md-8a6c2e",
    "section": "resources",
    "name": "Auto-discovered: LIVE_STATE.md",
    "sub": "Auto-discovered \u2014 work",
    "state": "done",
-   "task": "work \u2014 first seen 18:40, last movement 01:18",
-   "last": "Last movement 01:18 IST",
+   "task": "work \u2014 first seen 18:40, last movement 01:33",
+   "last": "Last movement 01:33 IST",
    "window_min": 0,
    "events": [
     {
@@ -1064,6 +1046,24 @@
     }
    ],
    "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/LIVE_STATE.md"
+  },
+  {
+   "id": "disc-MD-CTO-RECHECK-STATE-md-de6f29",
+   "section": "resources",
+   "name": "Auto-discovered: MD_CTO_RECHECK_STATE.md",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "done",
+   "task": "work \u2014 first seen 09:00, last movement 01:31",
+   "last": "Last movement 01:31 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "09:00",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/MD_CTO_RECHECK_STATE.md"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/MD_CTO_RECHECK_STATE.md"
   },
   {
    "id": "disc-MD-CTO-RECHECK-md-1bccaa",
