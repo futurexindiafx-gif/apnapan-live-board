@@ -1,6 +1,6 @@
 {
- "generated_ist": "2026-10-31T11:25:17+05:30",
- "generated_label": "Current when opened: 11:25 IST",
+ "generated_ist": "2026-10-31T11:30:12+05:30",
+ "generated_label": "Current when opened: 11:30 IST",
  "refresh_rule": "Live on open: this page fetches fresh state every time it opens (tap = current state), cache-busted. State also rebuilds on every team change and every 5 min by schedule. AUTO-DISCOVERY: new D-files, kernel versions, run dirs, cron jobs, work dirs and deliverables are found by scan and appear as nodes within one refresh cycle (5 min) of starting \u2014 on every tap after that refresh. Never second-by-second, never a hand rebuild. No animated fake motion.",
  "honesty": "Every node is an AI agent, specialist or tool \u2014 not a human employee. Every state traces to a real file named in the node. No activity is animated or invented. Off-box activity leaves no box file: Muse updates team_status.json the moment an outside brain is consulted or assigned, so those nodes appear via the same refresh. Outside-brain assignment fields show the standing reply route (reply \u2192 Muse MD/CTO \u2192 named internal specialist lane \u2192 our engine; sanitized design review only, never auto-applied).",
  "flow": [
@@ -383,7 +383,7 @@
    "name": "Dashboard card",
    "sub": "Hourly 08:00\u201320:00 IST \u2014 graphical progress card",
    "state": "stuck",
-   "task": "STUCK? No movement for 6696 min (window 120 min). Tap for history, then ask Muse about this node.",
+   "task": "STUCK? No movement for 6701 min (window 120 min). Tap for history, then ask Muse about this node.",
    "last": "State file 19:48 IST",
    "window_min": 120,
    "events": [
@@ -472,7 +472,7 @@
    "name": "Path L engine",
    "sub": "Lead engine lane",
    "state": "stuck",
-   "task": "STUCK? No movement for 5869 min (window 90 min). Tap for history, then ask Muse about this node.",
+   "task": "STUCK? No movement for 5874 min (window 90 min). Tap for history, then ask Muse about this node.",
    "last": "Latest movement 09:35 IST",
    "window_min": 90,
    "events": [
@@ -711,12 +711,12 @@
    "name": "Board refresh (this board)",
    "sub": "Every 5 min \u2014 regenerates board state",
    "state": "working",
-   "task": "Board state writer last ran 11:25 IST (cron or manual)",
-   "last": "Writer run 11:25 IST",
+   "task": "Board state writer last ran 11:30 IST (cron or manual)",
+   "last": "Writer run 11:30 IST",
    "window_min": 30,
    "events": [
     {
-     "t": "11:25 IST",
+     "t": "11:30 IST",
      "text": "State regenerated (discovery scan included)",
      "src": "hidden_files/live_ops_board/write_state.py"
     }
@@ -1030,31 +1030,13 @@
    "evidence": "/home/hatch/workspace/goals/conversational-rio-voice-first-personal-assistant/crons/runonce/rio-v9-8am-readiness__runonce@2026-10-23T07:30:00.md"
   },
   {
-   "id": "disc-MD-CTO-RECHECK-STATE-md-de6f29",
-   "section": "resources",
-   "name": "Auto-discovered: MD_CTO_RECHECK_STATE.md",
-   "sub": "Auto-discovered \u2014 work",
-   "state": "done",
-   "task": "work \u2014 first seen 09:00, last movement 11:23",
-   "last": "Last movement 11:23 IST",
-   "window_min": 0,
-   "events": [
-    {
-     "t": "09:00",
-     "text": "First seen by board scan",
-     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/MD_CTO_RECHECK_STATE.md"
-    }
-   ],
-   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/MD_CTO_RECHECK_STATE.md"
-  },
-  {
    "id": "disc-LIVE-STATE-md-8a6c2e",
    "section": "resources",
    "name": "Auto-discovered: LIVE_STATE.md",
    "sub": "Auto-discovered \u2014 work",
    "state": "done",
-   "task": "work \u2014 first seen 18:40, last movement 11:18",
-   "last": "Last movement 11:18 IST",
+   "task": "work \u2014 first seen 18:40, last movement 11:29",
+   "last": "Last movement 11:29 IST",
    "window_min": 0,
    "events": [
     {
@@ -1066,13 +1048,49 @@
    "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/LIVE_STATE.md"
   },
   {
+   "id": "disc-PROJECT-REVIEW-20261031-LANE3-ADDENDUM-m-6fcace",
+   "section": "resources",
+   "name": "Auto-discovered: PROJECT_REVIEW_20261031_LANE3_ADDENDUM.md",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "done",
+   "task": "work \u2014 first seen 11:30, last movement 11:29",
+   "last": "Last movement 11:29 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "11:30",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/PROJECT_REVIEW_20261031_LANE3_ADDENDUM.md"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/PROJECT_REVIEW_20261031_LANE3_ADDENDUM.md"
+  },
+  {
+   "id": "disc-MUSETALK-SMOKE-20261031-md-1f75c3",
+   "section": "resources",
+   "name": "Auto-discovered: MUSETALK_SMOKE_20261031.md",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "done",
+   "task": "work \u2014 first seen 11:30, last movement 11:29",
+   "last": "Last movement 11:29 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "11:30",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/MUSETALK_SMOKE_20261031.md"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/MUSETALK_SMOKE_20261031.md"
+  },
+  {
    "id": "disc-PROJECT-REVIEW-20261031-md-701358",
    "section": "resources",
    "name": "Auto-discovered: PROJECT_REVIEW_20261031.md",
    "sub": "Auto-discovered \u2014 work",
    "state": "done",
-   "task": "work \u2014 first seen 11:15, last movement 11:16",
-   "last": "Last movement 11:16 IST",
+   "task": "work \u2014 first seen 11:15, last movement 11:27",
+   "last": "Last movement 11:27 IST",
    "window_min": 0,
    "events": [
     {
@@ -1082,6 +1100,24 @@
     }
    ],
    "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/pathl_finetune_prep/launch_work/PROJECT_REVIEW_20261031.md"
+  },
+  {
+   "id": "disc-MD-CTO-RECHECK-STATE-md-de6f29",
+   "section": "resources",
+   "name": "Auto-discovered: MD_CTO_RECHECK_STATE.md",
+   "sub": "Auto-discovered \u2014 work",
+   "state": "done",
+   "task": "work \u2014 first seen 09:00, last movement 11:26",
+   "last": "Last movement 11:26 IST",
+   "window_min": 0,
+   "events": [
+    {
+     "t": "09:00",
+     "text": "First seen by board scan",
+     "src": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/MD_CTO_RECHECK_STATE.md"
+    }
+   ],
+   "evidence": "/home/hatch/workspace/goals/apnapan-talking-face-engine-ansh-anshita/hidden_files/MD_CTO_RECHECK_STATE.md"
   },
   {
    "id": "disc-ANSHITA-SWAP-STAGING-20261031-md-899da4",
